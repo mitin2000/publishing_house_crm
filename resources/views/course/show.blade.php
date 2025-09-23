@@ -1,12 +1,14 @@
-@extends('layouts.main2')
+@extends('layouts.main')
 @section('content')
 
     <main class="blog-post">
         <div class="container">
-            <div class="d-none d-lg-block"><h2 class="text-center pt-5 pb-2 " data-aos="fade-up" style="color: #094ca1">{{$course->title}}</h2></div>
-            <div class="d-lg-none pb-2"><h3 class="text-center pt-4" data-aos="fade-up" style="color: #094ca1">{{$course->title}}</h3></div>
+            <div class="d-none d-lg-block"><h2 class="text-center pt-5 pb-2 " data-aos="fade-up"
+                                               style="color: #094ca1">{{$course->title}}</h2></div>
+            <div class="d-lg-none pb-2"><h3 class="text-center pt-4" data-aos="fade-up"
+                                            style="color: #094ca1">{{$course->title}}</h3></div>
 
-            <p class="pb-lg-3 text-center" style="color: grey" data-aos="fade-up" data-aos-delay="200">Эксперты курса:
+            <p class="pb-lg-3 text-center" style="color: grey" data-aos="fade-up" data-aos-delay="200">Авторы:
 
                 @foreach($authors as $author)
                     {{ is_array($course->authors->pluck('id')->toArray()) && in_array($author->id, $course->authors->pluck('id')->toArray()) ? $author->name . ',' : ''  }}
@@ -16,27 +18,14 @@
             <section class="blog-post-featured-img mb-1" data-aos="fade-up" data-aos-delay="300">
                 <div class="row">
                     <div class="col">
-                        <div class="d-none d-lg-block"><p class="text-center"><img src="{{url('storage/' . $course->image) }}" alt="featured image" class="w-75"></p></div>
-                        <div class="d-lg-none pb-2"><p class="text-center"><img src="{{url('storage/' . $course->image) }}" alt="featured image" class="w-100"></p></div>
+                        <div class="d-none d-lg-block"><p class="text-center"><img
+                                        src="{{url('storage/' . $course->image) }}" alt="featured image" class="w-75">
+                            </p></div>
+                        <div class="d-lg-none pb-2"><p class="text-center"><img
+                                        src="{{url('storage/' . $course->image) }}" alt="featured image" class="w-100">
+                            </p></div>
                     </div>
                 </div>
-{{--                <div class="row">--}}
-{{--                    @if(isset($course->price) && $course->price != 0)--}}
-{{--                        <div class="col-12 pt-5 text-center course-price">--}}
-{{--                            Стомость обучения {{number_format($course->price, 0, ',', ' ')}} руб.--}}
-{{--                        </div>--}}
-{{--                    @endif--}}
-{{--                <div class="col-12 pt-5 text-center">--}}
-{{--                    <a href="--}}
-{{--                        @if(isset($course->price) && $course->price != 0)--}}
-{{--                            {{route('order.create', $course->id)}}--}}
-{{--                        @else--}}
-{{--                            {{route('lid.create', ['selectedCourse' => $course->id])}}--}}
-{{--                        @endif--}}
-{{--                        " class="btn btn-primary btn-lg"><i class="fas fa-arrow-right mr-2"></i>--}}
-{{--                        Записаться</a>--}}
-{{--                </div>--}}
-{{--                </div>--}}
 
             </section>
             <section class="blog-post-featured-img" data-aos="fade-up" data-aos-delay="300">
@@ -46,65 +35,7 @@
                         <p>{!! $course->description !!}</p>
                     </div>
                 </div>
-                <div class="row pt-5 pb-1">
-                    <div class="col-lg-9 mx-auto" data-aos="fade-up">
-                        <div class="alert alert-secondary" role="alert">
 
-                                <a href="{{ url('storage/' . $course->utp) }}" style="color: darkblue" target="_blank">
-                                    <img src="{{asset('assets/images/plan.png')}}" class="text-decoration-none"> Учебно-тематический план</a>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="row pb-5">
-                    <div class="row">
-                        @if(isset($course->price) && $course->price != 0)
-                            <div class="col-12 pt-5 text-center course-price">
-                                Стомость обучения {{number_format($course->price, 0, ',', ' ')}} руб.
-                            </div>
-                        @endif
-                        <div class="col-12 pt-5 pb-5 text-center">
-                            <a href="
-                        @if(isset($course->price) && $course->price != 0)
-                            {{route('order.create', $course->id)}}
-                            @else
-                            {{route('lid.create', ['selectedCourse' => $course->id])}}
-                            @endif
-                                " class="btn btn-primary btn-lg"><i class="fas fa-arrow-right mr-2"></i>
-                                Записаться</a>
-                        </div>
-                    </div>
-                <div class="row">
-                    <div class="col-lg-9 mx-auto" data-aos="fade-up">
-                        <div class="col"><img src="{{asset('assets/images/graf_edu.png')}}" alt="featured image"
-                                              class="w-100"></div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6" data-aos="fade-up"><img src="{{asset('assets/images/graf_edu1.png')}}"
-                                                             alt="featured image" class="w-100"></div>
-                    <div class="col-sm-6" data-aos="fade-up"><img src="{{asset('assets/images/graf_edu2.png')}}"
-                                                             alt="featured image" class="w-100"></div>
-                </div>
-{{--                <div class="row pt-2">--}}
-{{--                    <div class="col-sm-6" data-aos="fade-up">--}}
-{{--                        <img src="{{asset('assets/images/tools.png')}}" class="w-100"></div>--}}
-{{--                    <div class="col-sm-6" data-aos="fade-up">--}}
-{{--                        <img src="{{asset('assets/images/tools1.png')}}" class="w-100"></div>--}}
-{{--                </div>--}}
-                    <div class="row">
-                        <div class="col-lg-9 mx-auto" data-aos="fade-up">
-                            <div class="col"><img src="{{asset('assets/images/tools-new.png')}}" alt="featured image"
-                                                  class="w-100"></div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-9 mx-auto">
-                            <div class="col"><img src="{{asset('assets/images/tools1-new.png')}}" alt="featured image"
-                                                  class="w-100"></div>
-                        </div>
-                    </div>
-                </div>
             </section>
 
             <div class="row">
@@ -117,32 +48,7 @@
                 </div>
             </div>
         </div>
-        <section class="edica-footer-banner-section">
-            <div class="container">
-                <div class="footer-banner" data-aos="fade-up">
-                    <h2 class="banner-title">Подать заявку!</h2>
-                    <div class="banner-btns-wrapper">
-                        @if(isset($course->price) && $course->price != 0)
-                            <div class="col-12 pt-5 text-center course-price">
-                                Стомость обучения {{number_format($course->price, 0, ',', ' ')}} руб.
-                            </div>
-                        @endif
-                        <div class="carousel-content-btns">
-                            <a href="
-                                @if(isset($course->price) && $course->price != 0)
-                            {{route('order.create', $course->id)}}
-                            @else
-                            {{route('lid.create', ['selectedCourse' => $course->id])}}
-                            @endif
-                                " class="btn btn-primary btn-lg"><i class="fas fa-arrow-right mr-2"></i>
-                                Записаться</a>
-                        </div>
 
-
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
 @endsection

@@ -15,7 +15,7 @@
     <section class="content">
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
-            <div  class="col-4">
+            <div class="col-4">
                 <form action="{{route('admin.status.store')}}" method="post">
                     @csrf
                     <div class="mb-3">
@@ -28,7 +28,7 @@
                     <div class="mb-3">
                         <label>Цвет</label>
                         <input name="color" type="color" list="colorList" aria-describedby="Цвет" value="#ffffff">
-                        @include('layouts.colorlist')
+                        @include('includes.colorlist')
                         @error('color')
                         <div class="text-danger">{{$message}}</div>
                         @enderror
@@ -50,13 +50,5 @@
 
         </div><!-- /.container-fluid -->
     </section>
-
-
-
-
-
-
-
-
 
 @endsection

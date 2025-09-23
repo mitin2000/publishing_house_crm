@@ -1,4 +1,4 @@
-@extends('layouts.main2')
+@extends('layouts.main')
 @section('content')
 
     <div class="row pt-5 pb-5">
@@ -39,9 +39,12 @@
                                                         @if($order->status->code == 'payment-allowed')
                                                             <form method="post" action="{{route('payment.create')}}">
                                                                 @csrf
-                                                                <input type="hidden" name="description" id="description" value="Оплата обучения">
-                                                                <input type="hidden" name="amount" id="amount" value="{{$order->amount}}">
-                                                                <input type="hidden" name="order_id" id="amount" value="{{$order->id}}">
+                                                                <input type="hidden" name="description" id="description"
+                                                                       value="Оплата обучения">
+                                                                <input type="hidden" name="amount" id="amount"
+                                                                       value="{{$order->amount}}">
+                                                                <input type="hidden" name="order_id" id="amount"
+                                                                       value="{{$order->id}}">
                                                                 <button type="submit" class="btn btn-primary">
                                                                     Оплатить
                                                                 </button>

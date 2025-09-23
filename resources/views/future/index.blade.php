@@ -1,12 +1,15 @@
-@extends('layouts.main2')
+@extends('layouts.main')
 @section('content')
 
     <main class="blog">
         <div class="container">
-            <div class="row p-5"  data-aos="fade-up">
+            <div class="row p-5" data-aos="fade-up">
                 <div class="col">
                     <h1 class="text-center">Код будущего</h1>
-                    <p class="text-center" style="color: grey; font-size: 20px">В рамках реализации федерального проекта «Кадры для цифровой трансформации» национального проекта «Экономика данных и цифровая трансформация государства».  <br> Для школьников 8–11 классов и обучающихся по программам среднего профессионального образования</p>
+                    <p class="text-center" style="color: grey; font-size: 20px">В рамках реализации федерального проекта
+                        «Кадры для цифровой трансформации» национального проекта «Экономика данных и цифровая
+                        трансформация государства». <br> Для школьников 8–11 классов и обучающихся по программам
+                        среднего профессионального образования</p>
 
                 </div>
             </div>
@@ -28,11 +31,15 @@
                             </div>
                         @endforeach
                     @else
-                        <div class="row pb-5"  data-aos="fade-up">
+                        <div class="row pb-5" data-aos="fade-up">
                             <div class="col">
-                                <p class="text-center" style="color: #3d444b; font-size: 20px">К сожалению, на данный момент запись на все наши курсы закончилась. <br> Подпишитесь на наш <a href="{{url('https://t.me/osnovanie_study')}}" target="_blank"><i class="fab fa-telegram"></i> Телеграм канал</a>, чтобы быть в курсе ближайших стартов обучения.</p>
+                                <p class="text-center" style="color: #3d444b; font-size: 20px">К сожалению, на данный
+                                    момент запись на все наши курсы закончилась. <br> Подпишитесь на наш <a
+                                            href="{{url('https://t.me/osnovanie_study')}}" target="_blank"><i
+                                                class="fab fa-telegram"></i> Телеграм канал</a>, чтобы быть в курсе
+                                    ближайших стартов обучения.</p>
                                 <br>
-                                <img src="{{asset('assets/images/sunset.jpg')}}" class="img-fluid" >
+                                <img src="{{asset('assets/images/sunset.jpg')}}" class="img-fluid">
                                 <br>
                                 <br>
                                 <br>

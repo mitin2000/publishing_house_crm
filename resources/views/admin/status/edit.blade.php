@@ -16,28 +16,31 @@
     <section class="content">
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
-            <div  class="col">
+            <div class="col">
                 <form action="{{route('admin.status.update', $status->id)}}" method="post">
                     @csrf
                     @method('PATCH')
                     <div class="mb-3">
                         <label>Название категории</label>
-                        <input name="title" type="text" class="form-control" aria-describedby="Название" value="{{$status->title}}">
+                        <input name="title" type="text" class="form-control" aria-describedby="Название"
+                               value="{{$status->title}}">
                         @error('title')
                         <div class="text-danger">Это поле необходимо для заполнения "{{$message}}"</div>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label>Цвет</label>
-                        <input name="color" type="color" list="colorList" aria-describedby="Цвет" value="{{$status->color}}">
-                        @include('layouts.colorlist')
+                        <input name="color" type="color" list="colorList" aria-describedby="Цвет"
+                               value="{{$status->color}}">
+                        @include('includes.colorlist')
                         @error('color')
                         <div class="text-danger">{{$message}}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label>Описание статуса</label>
-                        <textarea name="description" type="text" class="form-control">{{$status->description}}</textarea>
+                        <textarea name="description" type="text"
+                                  class="form-control">{{$status->description}}</textarea>
                         @error('description')
                         <div class="text-danger">Это поле необходимо для заполнения "{{$message}}"</div>
                         @enderror

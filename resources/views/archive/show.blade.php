@@ -1,4 +1,4 @@
-@extends('layouts.main2')
+@extends('layouts.main')
 @section('content')
 
     <main class="blog-post">
@@ -16,7 +16,7 @@
             <section class="post-content">
                 <div class="row">
                     <div class="col-lg-9 mx-auto" data-aos="fade-up">
-                       <p>{!! $course->description !!}</p>
+                        <p>{!! $course->description !!}</p>
                     </div>
                 </div>
 
@@ -26,7 +26,7 @@
                 <div class="col-lg-9 mx-auto">
 
                     <section class="comment-section">
-                        <h2 class="section-title mb-5" data-aos="fade-up">  </h2>
+                        <h2 class="section-title mb-5" data-aos="fade-up"></h2>
 
                     </section>
                 </div>
@@ -38,7 +38,8 @@
                     <h1 class="banner-title">Подать заявку!</h1>
                     <div class="banner-btns-wrapper">
                         <div class="carousel-content-btns">
-                            <a href="{{route('lid.create')}}" class="btn btn-primary"><i class="fas fa-arrow-right mr-2"></i>
+                            <a href="{{route('lid.create')}}" class="btn btn-primary"><i
+                                        class="fas fa-arrow-right mr-2"></i>
                                 Записаться</a>
                         </div>
                     </div>

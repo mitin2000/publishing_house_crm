@@ -79,9 +79,9 @@
 <body>
 
 <header>
-    <div class="container ">
+    <div class="container">
         <header class="d-flex justify-content-center pt-3">
-            <a class="navbar-brand" href="{{route('main.index')}}"><img src="{{asset('assets/images/logo-main.png')}}" width="260"  alt="Основание"></a>
+            <a class="navbar-brand" href="{{route('main.index')}}">Лого</a>
         </header>
     </div>
 </header>
