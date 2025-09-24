@@ -4,23 +4,34 @@
     <main class="blog">
         <div class="container">
 
-            <div class="row p-5" data-aos="fade-up">
+            <div class="row p-5">
                 <div class="col">
-                    <h1 class="text-center">Уже в продаже</h1>
-                    <div class="d-none d-lg-block"><p class="text-center" style="color: grey; font-size: 20px">Художественная литература - Фантастика и фэнтези</p>
-                    </div>
+                    {{--                    <h1 style="font-family: 'Blogger Sans', serif; color: #97d700;" class="text-center">Уже в продаже</h1>--}}
+                    {{--                    <div class="d-none d-lg-block">--}}
+                    {{--                        <p class="text-center" style="color: grey; font-size: 20px">Художественная литература - Фантастика и фэнтези</p>--}}
+                    {{--                    </div>--}}
                 </div>
             </div>
 
             <nav>
-                {{--                <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">--}}
-                {{--                    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Все</button>--}}
-                {{--                    <button class="nav-link" id="nav-digital-tab" data-bs-toggle="tab" data-bs-target="#nav-digital" type="button" role="tab" aria-controls="nav-digital" aria-selected="false">Азбука цифры</button>--}}
-                {{--                    <button class="nav-link" id="nav-designed-tab" data-bs-toggle="tab" data-bs-target="#nav-designed" type="button" role="tab" aria-controls="nav-designed" aria-selected="false">Азбука дизайна</button>--}}
-                {{--                    <button class="nav-link" id="nav-business-tab" data-bs-toggle="tab" data-bs-target="#nav-business" type="button" role="tab" aria-controls="nav-business" aria-selected="false">Азбука бизнеса</button>--}}
-                {{--                </div>--}}
+                <div style="font-family: 'Blogger Sans', serif; color: #0a53be;" class="nav nav-tabs nav-fill"
+                     id="nav-tab" role="tablist">
+                    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
+                            type="button" role="tab" aria-controls="nav-home" aria-selected="true"><h4>Все</h4>
+                    </button>
+                    <button class="nav-link" id="nav-digital-tab" data-bs-toggle="tab" data-bs-target="#nav-digital"
+                            type="button" role="tab" aria-controls="nav-digital" aria-selected="false"><h4>Сказки</h4>
+                    </button>
+                    <button class="nav-link" id="nav-designed-tab" data-bs-toggle="tab" data-bs-target="#nav-designed"
+                            type="button" role="tab" aria-controls="nav-designed" aria-selected="false"><h4>
+                            Карточки</h4>
+                    </button>
+                    <button class="nav-link" id="nav-business-tab" data-bs-toggle="tab" data-bs-target="#nav-business"
+                            type="button" role="tab" aria-controls="nav-business" aria-selected="false"><h4>Игры</h4>
+                    </button>
+                </div>
             </nav>
-            <div class="tab-content" id="nav-tabContent">
+            <div class="pt-5 tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"
                      tabindex="0">
                     <section class="featured-posts-section">
@@ -32,9 +43,9 @@
                                             <img src="{{'storage/' . $course->prev_img}}" alt="blog post">
                                         </a>
                                     </div>
-                                    <p class="blog-post-category"></p>
+                                    <p class="blog-post-category">Книга детям</p>
                                     <a href="{{route('course.show', $course->id)}}" class="blog-post-permalink">
-                                        <h6 class="blog-post-title">{{$course->title}}</h6>
+                                        <h6 style="font-family: 'Blogger Sans', serif;" class="blog-post-title">«{{$course->title}}»</h6>
                                     </a>
                                 </div>
                             @endforeach

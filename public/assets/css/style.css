@@ -16,7 +16,10 @@
     font-weight: 500;
     font-style: normal;
 }
-
+@font-face {
+    font-family: "Blogger Sans";
+    src: url("../fonts/bloggersans/Blogger_Sans-Light.otf");
+}
 
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)

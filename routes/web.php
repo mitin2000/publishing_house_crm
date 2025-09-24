@@ -41,6 +41,10 @@ Route::group(['namespace' => 'About', 'prefix' => 'about', 'middleware' => ['coo
     Route::get('/', 'IndexController')->name('about.index');
 });
 
+Route::group(['namespace' => 'Social', 'prefix' => 'social', 'middleware' => ['cookie']],function (){
+    Route::get('/', 'IndexController')->name('social.index');
+});
+
 Route::group(['namespace' => 'Services', 'prefix' => 'services', 'middleware' => ['cookie']],function (){
     Route::get('/', 'IndexController')->name('services.index');
 });

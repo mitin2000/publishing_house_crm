@@ -78,7 +78,7 @@
 
 @yield('content')
 
-@include('includes.footer')
+@include('includes.footer-main')
 
 
 <script src="{{asset('assets/vendors/popper.js/popper.min.js')}}"></script>
