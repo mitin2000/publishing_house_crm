@@ -72,6 +72,14 @@
                     </ul>
                 </li>
                 <li class="nav-item">
+                    <a href="{{route('admin.book.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-book-open"></i>
+                        <p>
+                            Книги
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{route('admin.course.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-book-open"></i>
                         <p>

@@ -170,6 +170,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
 
     Route::group(['as' => 'admin.'], function() {
         Route::resource('link', LinkController::class);
+        Route::resource('book', BookController::class);
     });
 
     Route::group(['namespace' => 'Status', 'prefix' => 'status'],function (){
