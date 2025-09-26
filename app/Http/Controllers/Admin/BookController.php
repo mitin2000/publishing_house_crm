@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Author;
 use App\Models\Book;
+use App\Http\Requests\Admin\Book\StoreRequest;
 use Illuminate\Http\Request;
+
 
 class BookController extends Controller
 {
@@ -26,7 +29,8 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('admin.book.create');
+        $authors = Author::all();
+        return view('admin.book.create', compact('authors'));
     }
 
     /**
@@ -35,9 +39,11 @@ class BookController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        //
+        $data = $request->validated();
+        Book::firstOrCreate($data);
+        return redirect()->route('admin.book.index');
     }
 
     /**

@@ -44,12 +44,12 @@
                                         <td>{{$book->id}}</td>
                                         <td>{{$book->title}}</td>
 
-                                        <td>{{$link->created_at}}</td>
+                                        <td>{{$book->created_at}}</td>
                                         <td>
-                                            <a  href="{{route('admin.book.show', $link->id)}}"><i class="far fa-eye"></i></a>
-                                            <a  href="{{route('admin.book.edit', $link->id)}}" class="text-success"><i class="fas fa-pen"></i></a>
+                                            <a  href="{{route('admin.book.show', $book->id)}}"><i class="far fa-eye"></i></a>
+                                            <a  href="{{route('admin.book.edit', $book->id)}}" class="text-success"><i class="fas fa-pen"></i></a>
 
-                                            <form method="post" action="{{route('admin.book.destroy', $link->id)}}" class="d-inline-block">
+                                            <form method="post" action="{{route('admin.book.destroy', $book->id)}}" class="d-inline-block">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="bg-transparent border-0" type="submit"><i class="fas fa-trash text-danger" role="button"></i></button>

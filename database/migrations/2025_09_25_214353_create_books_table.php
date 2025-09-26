@@ -19,7 +19,7 @@ class CreateBooksTable extends Migration
             $table->text('description');
             $table->string('prev_img')->nullable();
             $table->string('image')->nullable();
-            $table->string('years', 4)->nullable();
+            $table->string('year', 4)->nullable();
             $table->string('pub_number')->nullable();
             $table->string('isbn')->nullable();
             $table->decimal('price', 10,2)->nullable();
