@@ -3,14 +3,23 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Book\UpdateRequest;
 use App\Models\Author;
 use App\Models\Book;
 use App\Http\Requests\Admin\Book\StoreRequest;
+use App\Service\BookService;
 use Illuminate\Http\Request;
 
 
 class BookController extends Controller
 {
+    private $service;
+
+    public function __construct(BookService $service)
+    {
+        $this->service = $service;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -42,7 +51,8 @@ class BookController extends Controller
     public function store(StoreRequest $request)
     {
         $data = $request->validated();
-        Book::firstOrCreate($data);
+        $this->service->store($data);
+
         return redirect()->route('admin.book.index');
     }
 
@@ -63,9 +73,10 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Book $book)
     {
-        //
+        $authors = Author::all();
+        return view('admin.book.edit', compact('book', 'authors'));
     }
 
     /**
@@ -75,9 +86,12 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, Book $book)
     {
-        //
+        $data = $request->validated();
+        $book = $this->service->update($data, $book);
+
+        return redirect()->route('admin.book.index', compact('book'));
     }
 
     /**
