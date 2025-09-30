@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\Book\UpdateRequest;
 use App\Models\Author;
 use App\Models\Book;
 use App\Http\Requests\Admin\Book\StoreRequest;
+use App\Models\BookCategory;
 use App\Service\BookService;
 use Illuminate\Http\Request;
 
@@ -39,7 +40,8 @@ class BookController extends Controller
     public function create()
     {
         $authors = Author::all();
-        return view('admin.book.create', compact('authors'));
+        $categories = BookCategory::all();
+        return view('admin.book.create', compact('authors', 'categories'));
     }
 
     /**
@@ -62,9 +64,9 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Book $book)
     {
-        //
+        return view('admin.book.show', compact('book'));
     }
 
     /**
@@ -76,7 +78,8 @@ class BookController extends Controller
     public function edit(Book $book)
     {
         $authors = Author::all();
-        return view('admin.book.edit', compact('book', 'authors'));
+        $categories = BookCategory::all();
+        return view('admin.book.edit', compact('book', 'authors', 'categories'));
     }
 
     /**

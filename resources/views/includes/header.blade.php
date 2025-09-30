@@ -15,8 +15,8 @@
                     <li class="nav-item {{ request()->is('about*') ? 'active' : null }}">
                         <a class="nav-link" href="{{route('about.index')}}"><h4 style="font-family: 'Blogger Sans', serif; color: #fe5000;">О нас</h4></a>
                     </li>
-                    <li class="nav-item {{ request()->is('course*') ? 'active' : null }}">
-                        <a class="nav-link" href="{{route('course.index')}}"><h4 style="font-family: 'Blogger Sans', serif; color: #97d700;">Книги</h4></a>
+                    <li class="nav-item {{ request()->is('book*') ? 'active' : null }}">
+                        <a class="nav-link" href="{{route('book.index')}}"><h4 style="font-family: 'Blogger Sans', serif; color: #97d700;">Книги</h4></a>
                     </li>
                     <li class="nav-item {{ request()->is('social*') ? 'active' : null }}">
                         <a class="nav-link" href="{{route('social.index')}}"><h4 style="font-family: 'Blogger Sans', serif; color: #ffb81c;">Мы в соцсетях</h4></a>

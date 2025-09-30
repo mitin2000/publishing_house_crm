@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}?v2">
     <script src="{{asset('assets/vendors/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('assets/js/loader.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
@@ -82,7 +83,7 @@
 
 
 <script src="{{asset('assets/vendors/popper.js/popper.min.js')}}"></script>
-<script src="{{asset('assets/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+<!--<script src="{{asset('assets/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>-->
 <script src="{{asset('assets/vendors/aos/aos.js')}}"></script>
 <script src="{{asset('assets/js/main.js')}}"></script>
 <script>

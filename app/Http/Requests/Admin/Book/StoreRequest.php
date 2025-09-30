@@ -34,6 +34,7 @@ class StoreRequest extends FormRequest
             'isbn' => 'nullable|string',
             'pub_number' => 'nullable|string',
             'price' => 'nullable|numeric',
+            'category_id' => 'nullable|numeric',
         ];
     }
     public function messages()

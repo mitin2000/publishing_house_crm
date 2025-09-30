@@ -85,6 +85,20 @@
                         <div class="text-danger">{{$message}}</div>
                         @enderror
                     </div>
+                    <div class="mb-3 form-group">
+                        <label>Выберите категорию</label>
+                        <select name="category_id" class="form-control">
+                            <option value="">---</option>
+                            @foreach($categories as $category)
+                                <option value="{{$category->id}}"
+                                    {{ $category->id == old('category_id') ? 'selected' : '' }}
+                                >{{$category->title}}</option>
+                            @endforeach
+                        </select>
+                        @error('series')
+                        <div class="text-danger">{{$message}}</div>
+                        @enderror
+                    </div>
                     <div class="mb-3">
                         <label>ISBN</label>
                         <input name="isbn" type="text" class="form-control" aria-describedby="ISBN"
