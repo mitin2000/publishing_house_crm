@@ -33,7 +33,9 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Название</th>
-
+                                    <th>Авторы</th>
+                                    <th>Категория</th>
+                                    <th>Цена</th>
                                     <th>Дата создания</th>
                                     <th>Действия</th>
                                 </tr>
@@ -43,7 +45,13 @@
                                     <tr>
                                         <td>{{$book->id}}</td>
                                         <td>{{$book->title}}</td>
-
+                                        <td>
+                                            @foreach($book->authors as $author)
+                                                {{ $author->name . '  ' }}
+                                            @endforeach
+                                        </td>
+                                        <td>{{ isset($book->category) ? $book->category->title : '' }}</td>
+                                        <td>{{$book->price}}</td>
                                         <td>{{$book->created_at}}</td>
                                         <td>
                                             <a  href="{{route('admin.book.show', $book->id)}}"><i class="far fa-eye"></i></a>
