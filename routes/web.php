@@ -26,6 +26,7 @@ Route::group(['namespace' => 'Course', 'prefix' => 'course', 'middleware' => ['c
 
 Route::group(['namespace' => 'Book', 'prefix' => 'book', 'middleware' => ['cookie']],function (){
     Route::get('/',[App\Http\Controllers\BookController::class, 'index'])->name('book.index');
+    Route::get('/{book}',[App\Http\Controllers\BookController::class, 'show'])->name('book.show');
 });
 
 

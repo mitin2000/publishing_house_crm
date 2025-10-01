@@ -14,4 +14,10 @@ class BookController extends Controller
         $categories = BookCategory::all();
         return view('book.index', compact('books', 'categories'));
     }
+
+    public function show(Book $book)
+    {
+        $authors = $book->authors->pluck('name')->toArray();
+        return view('book.show', compact('book', 'authors'));
+    }
 }

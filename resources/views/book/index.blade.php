@@ -30,12 +30,12 @@
                             @foreach($books as $book)
                                 <div class="col-md-4 fetured-post blog-post" data-aos="fade-right">
                                     <div class="blog-post-thumbnail-wrapper">
-                                        <a href="{{route('course.show', $book->id)}}">
+                                        <a href="{{route('book.show', $book->id)}}">
                                             <img src="{{'storage/' . $book->prev_img}}" alt="blog post">
                                         </a>
                                     </div>
                                     <p class="blog-post-category">Книга детям</p>
-                                    <a href="{{route('course.show', $book->id)}}" class="blog-post-permalink">
+                                    <a href="{{route('book.show', $book->id)}}" class="blog-post-permalink">
                                         <h6 style="font-family: 'Blogger Sans', serif;" class="blog-post-title">«{{$book->title}}»</h6>
                                     </a>
                                 </div>
