@@ -64,7 +64,7 @@
                                         </div>
                                     @endforeach
                                 @else
-                                    Тут пока ничего нет
+                                    Здесь пока ничего нет
                                 @endif
                             </div>
                         </section>
