@@ -2,9 +2,8 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{route('main.index')}}" class="brand-link">
-        <img src="{{asset('dist/img/logoCRM.png')}}" alt="Logo" class="brand-image"
-             >
-        <span class="brand-text font-weight-light">ОСНОВАНИЕ CRM</span>
+        <img src="{{asset('dist/img/logo_cat_wh.png')}}" alt="Logo" width="55">
+        <span class="brand-text font-weight-light">Publishing House</span>
     </a>
 
     <!-- Sidebar -->
@@ -48,29 +47,29 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-chart-pie"></i>
-                        <p>
-                            О нас
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview" style="display: none;">
-                        <li class="nav-item">
-                            <a href="{{route('admin.about.index')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Основные сведения</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('admin.document.index')}}" class="nav-link">
-                                <i class="far fa-folder-open nav-icon"></i>
-                                <p>Документы</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+{{--                <li class="nav-item">--}}
+{{--                    <a href="#" class="nav-link">--}}
+{{--                        <i class="nav-icon fas fa-chart-pie"></i>--}}
+{{--                        <p>--}}
+{{--                            О нас--}}
+{{--                            <i class="right fas fa-angle-left"></i>--}}
+{{--                        </p>--}}
+{{--                    </a>--}}
+{{--                    <ul class="nav nav-treeview" style="display: none;">--}}
+{{--                        <li class="nav-item">--}}
+{{--                            <a href="{{route('admin.about.index')}}" class="nav-link">--}}
+{{--                                <i class="far fa-circle nav-icon"></i>--}}
+{{--                                <p>Основные сведения</p>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li class="nav-item">--}}
+{{--                            <a href="{{route('admin.document.index')}}" class="nav-link">--}}
+{{--                                <i class="far fa-folder-open nav-icon"></i>--}}
+{{--                                <p>Документы</p>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
                 <li class="nav-item">
                     <a href="{{route('admin.book.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-book-open"></i>
@@ -81,7 +80,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{route('admin.course.index')}}" class="nav-link">
-                        <i class="nav-icon fas fa-book-open"></i>
+                        <i class="nav-icon fa-solid fa-book"></i>
                         <p>
                             Курсы
                         </p>
@@ -95,30 +94,30 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{route('admin.category.index')}}" class="nav-link">
-                        <i class="nav-icon fas fa-list"></i>
-                        <p>
-                            Категории
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{route('admin.leveledu.index')}}" class="nav-link">
-                        <i class="nav-icon fas fa-user-graduate"></i>
-                        <p>
-                            Уровни образования
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{route('admin.region.index')}}" class="nav-link">
-                        <i class="nav-icon fas fa-map-location-dot fa-map"></i>
-                        <p>
-                            Регионы
-                        </p>
-                    </a>
-                </li>
+{{--                <li class="nav-item">--}}
+{{--                    <a href="{{route('admin.category.index')}}" class="nav-link">--}}
+{{--                        <i class="nav-icon fas fa-list"></i>--}}
+{{--                        <p>--}}
+{{--                            Категории--}}
+{{--                        </p>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--                <li class="nav-item">--}}
+{{--                    <a href="{{route('admin.leveledu.index')}}" class="nav-link">--}}
+{{--                        <i class="nav-icon fas fa-user-graduate"></i>--}}
+{{--                        <p>--}}
+{{--                            Уровни образования--}}
+{{--                        </p>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--                <li class="nav-item">--}}
+{{--                    <a href="{{route('admin.region.index')}}" class="nav-link">--}}
+{{--                        <i class="nav-icon fas fa-map-location-dot fa-map"></i>--}}
+{{--                        <p>--}}
+{{--                            Регионы--}}
+{{--                        </p>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
                 <li class="nav-item">
                     <a href="{{route('admin.link.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-link"></i>
@@ -127,14 +126,14 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{route('admin.agent.index')}}" class="nav-link">
-                        <i class="nav-icon fas fa-magnet"></i>
-                        <p>
-                            Агенты
-                        </p>
-                    </a>
-                </li>
+{{--                <li class="nav-item">--}}
+{{--                    <a href="{{route('admin.agent.index')}}" class="nav-link">--}}
+{{--                        <i class="nav-icon fas fa-magnet"></i>--}}
+{{--                        <p>--}}
+{{--                            Агенты--}}
+{{--                        </p>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
                 <li class="nav-item">
                     <a href="{{route('admin.status.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-exclamation-circle"></i>
@@ -143,30 +142,30 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{route('admin.lid.index')}}" class="nav-link">
-                        <i class="nav-icon far fa-bell"></i>
-                        <p>
-                            Заявки
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{route('admin.order.index')}}" class="nav-link">
-                        <i class="nav-icon far fa-usd"></i>
-                        <p>
-                            Заказы
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{route('admin.report.index')}}" class="nav-link">
-                        <i class="nav-icon fas fa-chart-line"></i>
-                        <p>
-                            Отчеты
-                        </p>
-                    </a>
-                </li>
+{{--                <li class="nav-item">--}}
+{{--                    <a href="{{route('admin.lid.index')}}" class="nav-link">--}}
+{{--                        <i class="nav-icon far fa-bell"></i>--}}
+{{--                        <p>--}}
+{{--                            Заявки--}}
+{{--                        </p>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--                <li class="nav-item">--}}
+{{--                    <a href="{{route('admin.order.index')}}" class="nav-link">--}}
+{{--                        <i class="nav-icon far fa-usd"></i>--}}
+{{--                        <p>--}}
+{{--                            Заказы--}}
+{{--                        </p>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--                <li class="nav-item">--}}
+{{--                    <a href="{{route('admin.report.index')}}" class="nav-link">--}}
+{{--                        <i class="nav-icon fas fa-chart-line"></i>--}}
+{{--                        <p>--}}
+{{--                            Отчеты--}}
+{{--                        </p>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
             </ul>
 
         </nav>

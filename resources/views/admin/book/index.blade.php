@@ -6,9 +6,8 @@
                 <div class="col-sm-6">
                     <h1>Книги</h1>
                 </div>
-
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
+            </div>
+        </div>
     </div>
     <!-- /.content-header -->
 
@@ -28,13 +27,18 @@
                     <div class="card">
                         <!-- /.card-header -->
                         <div class="card-body">
+                            <div class="col pt-2">
                             <table id="link_table" class="table table-bordered table-striped hover">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
+                                    <th>Обложка</th>
                                     <th>Название</th>
-
                                     <th>Дата создания</th>
+                                    <th>Статус</th>
+                                    <th>Тираж</th>
+                                    <th>Поступления (руб.)</th>
+
                                     <th>Действия</th>
                                 </tr>
                                 </thead>
@@ -42,9 +46,13 @@
                                 @foreach($books as $book)
                                     <tr>
                                         <td>{{$book->id}}</td>
+                                        <td><img src="{{ url('storage/' . $book->prev_img) }}" alt="img" width="85"></td>
                                         <td>{{$book->title}}</td>
-
                                         <td>{{$book->created_at}}</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+
                                         <td>
                                             <a  href="{{route('admin.book.show', $book->id)}}"><i class="far fa-eye"></i></a>
                                             <a  href="{{route('admin.book.edit', $book->id)}}" class="text-success"><i class="fas fa-pen"></i></a>
@@ -59,6 +67,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
+                            </div>
                         </div>
                         <!-- /.card-body -->
                     </div>

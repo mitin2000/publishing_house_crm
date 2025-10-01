@@ -8028,16 +8028,16 @@ label {
 .form-group {
   margin-bottom: 19px; }
 
-.form-control {
-  border: 2px solid #fff0e8;
-  padding: 16px 13px;
-  color: #7d848b;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1;
-  border-radius: 0; }
-  .form-control:not(textarea) {
-    height: 45px; }
+/*.form-control {*/
+/*  border: 2px solid #fff0e8;*/
+/*  padding: 16px 13px;*/
+/*  color: #7d848b;*/
+/*  font-size: 14px;*/
+/*  font-weight: 500;*/
+/*  line-height: 1;*/
+/*  border-radius: 0; }*/
+/*  .form-control:not(textarea) {*/
+/*    height: 45px; }*/
 
 .edica-contact .contact-form-wrapper .btn {
   padding: 18px 45px;
