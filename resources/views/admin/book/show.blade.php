@@ -31,12 +31,6 @@
                                     <td>Название</td>
                                     <td>{{$book->title}}</td>
                                 </tr>
-                                <tr>
-                                    <td>Описание</td>
-                                    <td>
-                                        <p>{!! $book->description !!}</p>
-                                    </td>
-                                </tr>
 {{--                                <tr>--}}
 {{--                                    <td>Категория</td>--}}
 {{--                                    <td>--}}
@@ -52,6 +46,26 @@
                                             {{ $author->name . '  ' }}
                                         @endforeach
                                     </td>
+                                </tr>
+                                <tr>
+                                    <td>Категория</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>ISBN</td>
+                                    <td>{{$book->isbn}}</td>
+                                </tr>
+                                <tr>
+                                    <td>ISBN</td>
+                                    <td>{{$book->year}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Номер издания</td>
+                                    <td>{{$book->pub_number}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Цена</td>
+                                    <td>{{$book->price}}</td>
                                 </tr>
                                 <tr>
                                     <td>Дата создания</td>
@@ -73,23 +87,11 @@
 
             <!-- /.row -->
             <div class="row">
-                <div class="col-3">
+                <div class="col">
                     <a class="btn btn-outline-primary mr-2" href="{{route('admin.book.edit', $book->id)}}">Редактировать</a>
                     <a class="btn btn-outline-secondary" href="{{route('admin.book.index')}}">Назад</a>
                 </div>
-                <div class="col-3">
-                    <div class="d-flex justify-content-end">
-                        <div>
-                            <form method="post" action="{{route('admin.book.destroy', $book->id)}}">
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn btn-danger float-end" type="submit">Удалить</button>
-                            </form>
-                        </div>
-                    </div>
 
-                </div>
-                <div class="col-6"></div>
 
             </div>
 

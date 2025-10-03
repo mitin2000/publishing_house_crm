@@ -6,7 +6,6 @@
                 <div class="col">
                     <h1>Обновление заявки: "{{$lid->firstname . ' ' . $lid->lastname}}"</h1>
                 </div>
-
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>

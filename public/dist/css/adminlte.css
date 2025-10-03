@@ -53009,4 +53009,11 @@ a.text-muted:hover {
 .dark-mode .border-dark {
   border-color: #4b545c !important;
 }
+
+.image-for-card {
+    border-color: #0062cc;
+    background-color: red;
+}
+
+
 /*# sourceMappingURL=adminlte.css.map */

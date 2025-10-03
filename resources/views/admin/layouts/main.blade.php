@@ -6,7 +6,7 @@
     <!-- Favicon-->
     <link rel="shortcut icon" href="{{asset('assets/images/fav.ico')}}">
 
-    <title>Основание CRM</title>
+    <title>PH CRM</title>
 
     <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
 
@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{asset('plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
 
     <!-- Theme style -->
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}?v2">
     <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
 
 
@@ -33,7 +34,6 @@
     <!-- Daterange picker -->
     <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 
 
 
@@ -153,6 +153,25 @@
             //         ['height', ['height']]
             //     ]
             // }
+            {
+                height: 150
+            }
+        );
+        $('#summernote1').summernote(
+            // {
+            //     toolbar: [
+            //         // [groupName, [list of button]]
+            //         ['style', ['bold', 'italic', 'underline', 'clear']],
+            //         ['font', ['strikethrough', 'superscript', 'subscript']],
+            //         ['fontsize', ['fontsize']],
+            //         ['color', ['color']],
+            //         ['para', ['ul', 'ol', 'paragraph']],
+            //         ['height', ['height']]
+            //     ]
+            // }
+            {
+                height: 470
+            }
         );
     });
     $(function () {
