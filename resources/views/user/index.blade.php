@@ -28,7 +28,17 @@
                                                 <th>Статус</th>
                                             </tr>
                                             <tbody>
+                                            @foreach($orders as $order)
+                                                <tr>
+                                                    <td>{{$order->id}}</td>
+                                                    <td>{{$order->items->first()->title}}</td>
+                                                    <td>{{$order->items->first()->price}}</td>
+                                                    <td>{{$order->items->first()->quantity}}</td>
+                                                    <td>{{$order->items->first()->quantity * $order->items->first()->price}}</td>
+                                                    <td>Обработка</td>
+                                                </tr>
 
+                                            @endforeach
                                             </tbody>
                                             </thead>
                                         </table>

@@ -27,7 +27,12 @@
                     </div>
                     <div class="col-md-6">
                         @if(isset(auth()->user()->id))
-                            <div class="col pb-3"><div class="btn btn-outline-success"> <i class="nav-icon fas fa-cart-plus"></i> Добавить в заказ</div></div>
+                            <form method="post" action="{{ route('book.saveorder') }}">
+                                @csrf
+                                <input type="hidden" name="book_id" value="{{$book->id}}">
+                                <input type="hidden" name="quantity" value="1">
+                                <div class="col pb-3"><button type="submit" class="btn btn-outline-success"> <i class="nav-icon fas fa-cart-plus"></i> Добавить в заказ</button></div>
+                            </form>
                         @endif
                         <div>Описание</div>
                         <div>

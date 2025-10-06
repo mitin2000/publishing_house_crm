@@ -29,6 +29,7 @@ Route::group(['namespace' => 'Book', 'prefix' => 'book', 'middleware' => ['cooki
     Route::get('/{book}',[App\Http\Controllers\BookController::class, 'show'])->name('book.show');
 });
 
+Route::post('/book/saveorder', 'BookOrderController@saveOrder')->name('book.saveorder');
 
 Route::group(['namespace' => 'Commerce', 'prefix' => 'commerce', 'middleware' => ['cookie']],function (){
     Route::get('/',[App\Http\Controllers\Course\IndexController::class, 'commerce'])->name('commerce.index');
