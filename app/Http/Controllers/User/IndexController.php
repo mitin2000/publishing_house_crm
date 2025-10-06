@@ -11,9 +11,8 @@ use Illuminate\Http\Request;
 class IndexController extends Controller
 {
     public function __invoke()    {
-        $currentUserId = auth()->user()->id;
-        $userOrders = Order::all()->where('customer_id', $currentUserId);
 
-        return view('user.index', compact('userOrders'));
+
+        return view('user.index');
     }
 }

@@ -26,6 +26,9 @@
                             </p></div>
                     </div>
                     <div class="col-md-6">
+                        @if(isset(auth()->user()->id))
+                            <div class="col pb-3"><div class="btn btn-outline-success"> <i class="nav-icon fas fa-cart-plus"></i> Добавить в заказ</div></div>
+                        @endif
                         <div>Описание</div>
                         <div>
                             <p>{!! $book->description !!}</p>
