@@ -37,6 +37,12 @@ Route::group(['namespace' => 'Basket', 'prefix' => 'basket', 'middleware' => ['c
 
 Route::post('/book/saveorder', 'BookOrderController@saveOrder')->name('book.saveorder');
 
+
+Route::group(['namespace' => 'BookOrder', 'prefix' => 'book_order'],function (){
+    Route::get('/create', [\App\Http\Controllers\BookOrderController::class, 'create'])->name('book_order.create');
+//    Route::post('/create/finish', [\App\Http\Controllers\OrderController::class, 'store'])->name('order.store');
+});
+
 Route::group(['namespace' => 'Commerce', 'prefix' => 'commerce', 'middleware' => ['cookie']],function (){
     Route::get('/',[App\Http\Controllers\Course\IndexController::class, 'commerce'])->name('commerce.index');
 });

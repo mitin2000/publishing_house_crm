@@ -58,7 +58,9 @@
                         <!-- /.card-->
                         <div class="row">
                             <div class="col">
-                                <button class="btn btn-primary">Оформить заказ</button>
+                                <a href="{{route('book_order.create')}}">
+                                    <button class="btn btn-primary">Оформить заказ</button>
+                                </a>
                             </div>
                         </div>
                     </div>

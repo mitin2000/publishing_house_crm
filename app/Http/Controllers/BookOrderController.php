@@ -23,4 +23,8 @@ class BookOrderController extends Controller
         $orderItem = BookOrderItem::Create($orderItemData);
         return view('book_order.success', compact('order'));
     }
+
+    public function create(Request $request){
+        dump('Тут будет форма создания заказа');
+    }
 }
