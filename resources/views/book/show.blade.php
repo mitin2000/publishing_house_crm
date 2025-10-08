@@ -27,10 +27,9 @@
                     </div>
                     <div class="col-md-6">
                         @if(isset(auth()->user()->id))
-                            <form method="post" action="{{ route('book.saveorder') }}">
-                                @csrf
-                                <input type="hidden" name="book_id" value="{{$book->id}}">
-                                <input type="hidden" name="quantity" value="1">
+                            <form id="basketForm">
+                                <input type="hidden" id="book_id" name="book_id" value="{{$book->id}}">
+                                <input type="hidden" id="quantity" name="quantity" value="1">
                                 <div class="col pb-3"><button type="submit" class="btn btn-outline-success"> <i class="nav-icon fas fa-cart-plus"></i> Добавить в заказ</button></div>
                             </form>
                         @endif
@@ -49,5 +48,28 @@
         </div>
 
     </main>
+
+    <script>
+
+        $('#basketForm').on('submit',function(event){
+            event.preventDefault();
+
+            let book_id = $('#book_id').val();
+            let quantity = $('#quantity').val();
+
+            $.ajax({
+                url: "{{route('basket.store')}}",
+                type:"POST",
+                data:{
+                    "_token": "{{ csrf_token() }}",
+                    book_id:book_id,
+                    quantity:quantity,
+                },
+                success:function(response){
+                    console.log(response);
+                },
+            });
+        });
+    </script>
 
 @endsection
