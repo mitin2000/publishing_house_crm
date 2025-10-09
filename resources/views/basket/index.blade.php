@@ -17,13 +17,15 @@
                                 <div class="row">
                                     <div class="col">
 
-                                        <table id="user_orders_table" class="table table-bordered table-striped hover">
+                                        <table id="user_orders_table" class="table table-bordered">
                                             <thead>
-                                            <tr>
+                                            <tr class="table-secondary">
                                                 <th>Товар</th>
                                                 <th>Стоимость (1 шт.)</th>
                                                 <th>Кол-во</th>
+                                                <th class="table-secondary">Кол-во в уп.</th>
                                                 <th>Стоимость (Всего)</th>
+                                                <th>Действия</th>
                                             </tr>
                                             <tbody>
                                             @foreach($basket as $item)
@@ -31,16 +33,36 @@
                                                     <td>{{$item->book->title}}</td>
                                                     <td>{{$item->book->price}}</td>
                                                     <td>
-                                                        <button type="submit" class="m-0 p-0 border-0 bg-transparent basketMinus" book_id="{{$item->book->id}}">
+                                                        <button type="submit"
+                                                                class="m-0 p-0 border-0 bg-transparent basketMinus"
+                                                                book_id="{{$item->book->id}}">
                                                             <i class="fas fa-minus-square"></i>
                                                         </button>
-                                                        <span class="mx-1 quantity" book_id="{{$item->book->id}}">{{$item->quantity}}</span>
-                                                        <button type="submit" class="m-0 p-0 border-0 bg-transparent basketPlus" book_id="{{$item->book->id}}">
+                                                        <span class="mx-1 quantity"
+                                                              book_id="{{$item->book->id}}">{{$item->quantity}}</span>
+                                                        <button type="submit"
+                                                                class="m-0 p-0 border-0 bg-transparent basketPlus"
+                                                                book_id="{{$item->book->id}}">
                                                             <i class="fas fa-plus-square"></i>
                                                         </button>
                                                     </td>
+                                                    <td style="background-color: #f2eee9;">20</td>
                                                     <td>
-                                                        <span class="sum" book_id="{{$item->book->id}}">{{$item->quantity * $item->book->price}}</span>
+                                                        <span class="sum"
+                                                              book_id="{{$item->book->id}}">{{$item->quantity * $item->book->price}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <a href=""><i
+                                                                class="far fa-eye"></i></a>
+                                                        <a href=""
+                                                           class="text-success"><i class="fas fa-pen"></i></a>
+
+                                                        <form method="post" action=""
+                                                              class="d-inline-block">
+                                                            <button class="bg-transparent border-0" type="submit"><i
+                                                                    class="fas fa-trash text-danger" role="button"></i>
+                                                            </button>
+                                                        </form>
                                                     </td>
 
                                                 </tr>
@@ -56,7 +78,7 @@
                             <!-- /.card-body -->
                         </div>
                         <!-- /.card-->
-                        <div class="row">
+                        <div class="row pt-4 justify-content-end">
                             <div class="col">
                                 <a href="{{route('book_order.create')}}">
                                     <button class="btn btn-primary">Оформить заказ</button>
@@ -65,6 +87,7 @@
                         </div>
                     </div>
                 </div>
+
             </section>
 
         </div>
@@ -73,7 +96,7 @@
 
     <script>
 
-        $('.basketMinus').on('click',function(event){
+        $('.basketMinus').on('click', function (event) {
             event.preventDefault();
 
             let book_id = $(this).attr('book_id');
@@ -81,22 +104,22 @@
 
             $.ajax({
                 url: "{{route('basket.edit')}}",
-                type:"POST",
-                data:{
+                type: "POST",
+                data: {
                     "_token": "{{ csrf_token() }}",
-                    book_id:book_id,
-                    action:action,
+                    book_id: book_id,
+                    action: action,
                 },
                 dataType: "json",
-                success:function(response){
+                success: function (response) {
                     console.log(response);
-                    $('.quantity[book_id="'+book_id+'"]').text(response.quantity);
-                    $('.sum[book_id="'+book_id+'"]').text(response.sum);
+                    $('.quantity[book_id="' + book_id + '"]').text(response.quantity);
+                    $('.sum[book_id="' + book_id + '"]').text(response.sum);
                 },
             });
         });
 
-        $('.basketPlus').on('click',function(event){
+        $('.basketPlus').on('click', function (event) {
             event.preventDefault();
 
             let book_id = $(this).attr('book_id');
@@ -104,17 +127,17 @@
 
             $.ajax({
                 url: "{{route('basket.edit')}}",
-                type:"POST",
-                data:{
+                type: "POST",
+                data: {
                     "_token": "{{ csrf_token() }}",
-                    book_id:book_id,
-                    action:action,
+                    book_id: book_id,
+                    action: action,
                 },
                 dataType: "json",
-                success:function(response){
+                success: function (response) {
                     console.log(response);
-                    $('.quantity[book_id="'+book_id+'"]').text(response.quantity);
-                    $('.sum[book_id="'+book_id+'"]').text(response.sum);
+                    $('.quantity[book_id="' + book_id + '"]').text(response.quantity);
+                    $('.sum[book_id="' + book_id + '"]').text(response.sum);
                 },
             });
         });
