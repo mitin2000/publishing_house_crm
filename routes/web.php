@@ -40,7 +40,7 @@ Route::post('/book/saveorder', 'BookOrderController@saveOrder')->name('book.save
 
 Route::group(['namespace' => 'BookOrder', 'prefix' => 'book_order'],function (){
     Route::get('/create', [\App\Http\Controllers\BookOrderController::class, 'create'])->name('book_order.create');
-//    Route::post('/create/finish', [\App\Http\Controllers\OrderController::class, 'store'])->name('order.store');
+    Route::post('/store', [\App\Http\Controllers\BookOrderController::class, 'store'])->name('book_order.store');
 });
 
 Route::group(['namespace' => 'Commerce', 'prefix' => 'commerce', 'middleware' => ['cookie']],function (){

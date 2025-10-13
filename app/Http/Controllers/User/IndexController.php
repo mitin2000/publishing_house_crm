@@ -14,7 +14,6 @@ class IndexController extends Controller
     public function __invoke()    {
 
         $orders = BookOrder::where('user_id', auth()->user()->id)->get();
-//        dd($orders);
 
         return view('user.index', compact('orders'));
     }

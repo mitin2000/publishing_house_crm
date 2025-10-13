@@ -21,23 +21,22 @@
                                             <thead>
                                             <tr>
                                                 <th>№</th>
-                                                <th>Товар</th>
-                                                <th>Стоимость (1 шт.)</th>
-                                                <th>Кол-во</th>
-                                                <th>Стоимость (Всего)</th>
+                                                <th>Состав заказа</th>
+                                                <th>Сумма</th>
                                                 <th>Статус</th>
                                             </tr>
                                             <tbody>
                                             @foreach($orders as $order)
                                                 <tr>
                                                     <td>{{$order->id}}</td>
-                                                    <td>{{$order->items->first()->title}}</td>
-                                                    <td>{{$order->items->first()->price}}</td>
-                                                    <td>{{$order->items->first()->quantity}}</td>
-                                                    <td>{{$order->items->first()->quantity * $order->items->first()->price}}</td>
+                                                    <td>
+                                                        @foreach($order->items as $item)
+                                                            {{$item->title}}<br>
+                                                        @endforeach
+                                                    </td>
+                                                    <td>{{$order->amount}}</td>
                                                     <td>Обработка</td>
                                                 </tr>
-
                                             @endforeach
                                             </tbody>
                                             </thead>
