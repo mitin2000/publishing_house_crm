@@ -39,7 +39,7 @@
                             @case(3) {{route('cc.main.index')}}">Административная панель
                             @break
                             @default
-                                    {{route('user.index')}}">Личный кабинет
+                                    {{route('basket.index')}}">Корзина
                             @endswitch
                                 </a>
                                 <a class="dropdown-item" href="#">
