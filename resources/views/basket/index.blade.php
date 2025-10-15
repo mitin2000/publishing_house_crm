@@ -12,11 +12,19 @@
             <section class="featured-posts-section">
                 <div class="row">
                     <div class="col fetured-post blog-post" data-aos="fade-right">
+                        @if($basket->count() == 0)
+                            <div class="col text-center">
+                                <h4>Ваша корзина пока пуста</h4>
+                                <p>Перейдите в раздел "Книги", чтобы начать покупки</p>
+                                <a href="{{route('book.index')}}">
+                                    <button class="btn btn-primary">Начать покупки</button>
+                                </a>
+                            </div>
+                        @else
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
-
                                         <table id="user_orders_table" class="table table-bordered">
                                             <thead>
                                             <tr class="table-secondary">
@@ -78,6 +86,7 @@
                             <!-- /.card-body -->
                         </div>
                         <!-- /.card-->
+
                         <div class="row pt-4 justify-content-end">
                             <div class="col">
                                 <a href="{{route('book_order.create')}}">
@@ -85,6 +94,7 @@
                                 </a>
                             </div>
                         </div>
+                        @endif
                     </div>
                 </div>
 
