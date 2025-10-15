@@ -39,7 +39,7 @@
                             @case(3) {{route('cc.main.index')}}">Административная панель
                             @break
                             @default
-                                    {{route('basket.index')}}">Корзина
+                                    {{route('user.index')}}">Личный кабинет
                             @endswitch
                                 </a>
                                 <a class="dropdown-item" href="#">
@@ -50,6 +50,8 @@
                                 </a>
                             </div>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{route('basket.index')}}"><i class="fa fa-shopping-cart"></i></a></li>
                     </ul>
                 @else
                     <ul class="navbar-nav ml-auto p-3">
