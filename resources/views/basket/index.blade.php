@@ -11,7 +11,7 @@
         <div class="container">
             <section class="featured-posts-section">
                 <div class="row">
-                    <div class="col fetured-post blog-post" data-aos="fade-right">
+                    <div class="col fetured-post blog-post" data-aos="fade-right" id="basket_content">
                         @if($basket->count() == 0)
                             <div class="col text-center">
                                 <h4>Ваша корзина пока пуста</h4>
@@ -21,7 +21,7 @@
                                 </a>
                             </div>
                         @else
-                        <div class="card">
+                        <div class="card" id="basket_table">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
@@ -37,7 +37,7 @@
                                             </tr>
                                             <tbody>
                                             @foreach($basket as $item)
-                                                <tr>
+                                                <tr book_id="{{$item->book->id}}">
                                                     <td>{{$item->book->title}}</td>
                                                     <td>{{$item->book->price}}</td>
                                                     <td>
@@ -60,22 +60,21 @@
                                                               book_id="{{$item->book->id}}">{{$item->quantity * $item->book->price}}</span>
                                                     </td>
                                                     <td>
-                                                        <a href=""><i
-                                                                class="far fa-eye"></i></a>
-                                                        <a href=""
-                                                           class="text-success"><i class="fas fa-pen"></i></a>
-
-                                                        <form method="post" action=""
-                                                              class="d-inline-block">
-                                                            <button class="bg-transparent border-0" type="submit"><i
-                                                                    class="fas fa-trash text-danger" role="button"></i>
-                                                            </button>
-                                                        </form>
+                                                        <button type="submit"
+                                                                class="bg-transparent border-0  basketDelete"
+                                                                book_id="{{$item->book->id}}">
+                                                            <i class="fas fa-trash text-danger"></i>
+                                                        </button>
                                                     </td>
 
                                                 </tr>
 
                                             @endforeach
+                                            <tr class="table-borderless">
+                                                <td colspan="3"></td>
+                                                <td><b>Общая стоимость</b></td>
+                                                <td colspan="2" id="basket_sum"><b>{{$basketSum}}</b></td>
+                                            </tr>
                                             </tbody>
                                             </thead>
                                         </table>
@@ -87,7 +86,7 @@
                         </div>
                         <!-- /.card-->
 
-                        <div class="row pt-4 justify-content-end">
+                        <div  id="create_order_button" class="row pt-4 justify-content-end">
                             <div class="col">
                                 <a href="{{route('book_order.create')}}">
                                     <button class="btn btn-primary">Оформить заказ</button>
@@ -125,6 +124,7 @@
                     console.log(response);
                     $('.quantity[book_id="' + book_id + '"]').text(response.quantity);
                     $('.sum[book_id="' + book_id + '"]').text(response.sum);
+                    $('#basket_sum').html('<b>'+response.basket_sum+'</b>');
                 },
             });
         });
@@ -148,9 +148,34 @@
                     console.log(response);
                     $('.quantity[book_id="' + book_id + '"]').text(response.quantity);
                     $('.sum[book_id="' + book_id + '"]').text(response.sum);
+                    $('#basket_sum').html('<b>'+response.basket_sum+'</b>');
                 },
             });
         });
+
+        $('.basketDelete').on('click', function (event) {
+            event.preventDefault();
+
+            let book_id = $(this).attr('book_id');
+
+            $.ajax({
+                url: "{{route('basket.delete')}}",
+                type: "POST",
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    book_id: book_id,
+                },
+                dataType: "json",
+                success: function (response) {
+                    $('tr[book_id="' + book_id + '"]').remove();
+                    $('#basket_sum').html('<b>'+response.basket_sum+'</b>');
+                    //console.log(response);
+                    //$('.quantity[book_id="' + book_id + '"]').text(response.quantity);
+                    //$('.sum[book_id="' + book_id + '"]').text(response.sum);
+                },
+            });
+        });
+
     </script>
 
 @endsection

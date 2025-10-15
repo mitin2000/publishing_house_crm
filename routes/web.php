@@ -248,6 +248,7 @@ Route::group(['namespace' => 'Basket', 'prefix' => 'basket', 'middleware' => ['a
     Route::get('/',[App\Http\Controllers\BasketController::class, 'index'])->name('basket.index');
     Route::post('/store',[App\Http\Controllers\BasketController::class, 'store'])->name('basket.store');
     Route::post('/edit',[App\Http\Controllers\BasketController::class, 'edit'])->name('basket.edit');
+    Route::post('/delete',[App\Http\Controllers\BasketController::class, 'delete'])->name('basket.delete');
 });
 
 Route::post('/book/saveorder', 'BookOrderController@saveOrder')->name('book.saveorder');

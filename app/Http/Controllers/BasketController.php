@@ -49,18 +49,46 @@ class BasketController extends Controller
             case 'plus':
                 $basket->update(['quantity' => $quantity + $count]);
                 break;
+
         }
+
+        $basketAll = Basket::where('user_id', $this->user_id)->get();
+        $basketSum = 0;
+        foreach($basketAll as $item){
+            $basketSum += $item->book->price * $item->quantity;
+        }
+
         $returnData = [
             'book_id' => $book_id,
             'quantity' => $basket->quantity,
-            'sum' => $basket->quantity * $basket->book->price
+            'sum' => $basket->quantity * $basket->book->price,
+            'basket_sum' => $basketSum
         ];
         return json_encode($returnData);
+    }
+
+    public function delete(Request $request)
+    {
+        $book_id = $request['book_id'];
+        $basket = Basket::where('user_id', $this->user_id)->where('book_id', $book_id)->first();
+        $basket->delete();
+
+        $basketAll = Basket::where('user_id', $this->user_id)->get();
+        $basketSum = 0;
+        foreach($basketAll as $item){
+            $basketSum += $item->book->price * $item->quantity;
+        }
+
+        return json_encode(['book_id' => $book_id, 'basket_sum' => $basketSum]);
     }
 
     public function index()
     {
         $basket = Basket::where('user_id', $this->user_id)->get();
-        return view('basket.index', compact('basket'));
+        $basketSum = 0;
+        foreach($basket as $item){
+            $basketSum += $item->book->price * $item->quantity;
+        }
+        return view('basket.index', compact('basket', 'basketSum'));
     }
 }
