@@ -50,8 +50,11 @@
                                 </a>
                             </div>
                         </li>
+                        @if(auth()->user()->role == 10)
                         <li class="nav-item">
-                            <a href="{{route('basket.index')}}"><i class="fa fa-shopping-cart"></i></a></li>
+                            <a href="{{route('basket.index')}}"><i class="fa fa-shopping-cart"></i></a>
+                        </li>
+                        @endif
                     </ul>
                 @else
                     <ul class="navbar-nav ml-auto p-3">

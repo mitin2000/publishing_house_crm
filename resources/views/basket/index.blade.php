@@ -167,11 +167,19 @@
                 },
                 dataType: "json",
                 success: function (response) {
-                    $('tr[book_id="' + book_id + '"]').remove();
-                    $('#basket_sum').html('<b>'+response.basket_sum+'</b>');
-                    //console.log(response);
-                    //$('.quantity[book_id="' + book_id + '"]').text(response.quantity);
-                    //$('.sum[book_id="' + book_id + '"]').text(response.sum);
+                    if(response.basket_sum > 0){
+                        $('tr[book_id="' + book_id + '"]').remove();
+                        $('#basket_sum').html('<b>'+response.basket_sum+'</b>');
+                    }else{
+                        let basket_content_html = '<div class="col text-center">' +
+                            '<h4>Ваша корзина пока пуста</h4>' +
+                            '<p>Перейдите в раздел "Книги", чтобы начать покупки</p>' +
+                            '<a href="{{route('book.index')}}">' +
+                            '<button class="btn btn-primary">Начать покупки</button>' +
+                            '</a>' +
+                            '</div>';
+                        $('#basket_content').html(basket_content_html);
+                    }
                 },
             });
         });
