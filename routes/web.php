@@ -120,6 +120,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
         Route::patch('/{category}', 'UpdateController')->name('admin.category.update');
         Route::delete('/{category}', 'DeleteController')->name('admin.category.delete');
     });
+
     Route::group(['namespace' => 'Author', 'prefix' => 'author'],function (){
         Route::get('/', 'IndexController')->name('admin.author.index');
         Route::get('/create', 'CreateController')->name('admin.author.create');
@@ -192,6 +193,16 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
     Route::group(['namespace' => 'BookOrder', 'prefix' => 'book_order'],function (){
         Route::get('/', [\App\Http\Controllers\Admin\BookOrderController::class, 'index'])->name('admin.book_order.index');
         Route::get('/{order}', [\App\Http\Controllers\Admin\BookOrderController::class, 'show'])->name('admin.book_order.show');
+    });
+
+    Route::group(['namespace' => 'BookCategory', 'prefix' => 'bookcategory'],function (){
+        Route::get('/', 'IndexController')->name('admin.bookcategory.index');
+        Route::get('/create', 'CreateController')->name('admin.bookcategory.create');
+        Route::post('/', 'StoreController')->name('admin.bookcategory.store');
+        Route::get('/{category}', 'ShowController')->name('admin.bookcategory.show');
+        Route::get('/{category}/edit', 'EditController')->name('admin.bookcategory.edit');
+        Route::patch('/{category}', 'UpdateController')->name('admin.bookcategory.update');
+        Route::delete('/{category}', 'DeleteController')->name('admin.bookcategory.delete');
     });
 
 });

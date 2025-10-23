@@ -22,6 +22,7 @@ class BookOrderController extends Controller
         $basket = Basket::where('user_id', $user_id)->get();
         $orderData['user_id'] = $user_id;
         $orderData['status_id'] = 1;
+        $orderData['inn'] = $data['inn'];
         $orderData['customer_name'] = $data['lastname'] . ' ' . $data['firstname'] . ' ' . $data['middlename'];
         $orderData['phone'] = $data['phone'];
         $orderData['email'] = $data['email'];

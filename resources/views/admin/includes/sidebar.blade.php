@@ -78,14 +78,14 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{route('admin.course.index')}}" class="nav-link">
-                        <i class="nav-icon fa-solid fa-book"></i>
-                        <p>
-                            Курсы
-                        </p>
-                    </a>
-                </li>
+{{--                <li class="nav-item">--}}
+{{--                    <a href="{{route('admin.course.index')}}" class="nav-link">--}}
+{{--                        <i class="nav-icon fa-solid fa-book"></i>--}}
+{{--                        <p>--}}
+{{--                            Курсы--}}
+{{--                        </p>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
                 <li class="nav-item">
                     <a href="{{route('admin.author.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
@@ -94,14 +94,14 @@
                         </p>
                     </a>
                 </li>
-{{--                <li class="nav-item">--}}
-{{--                    <a href="{{route('admin.category.index')}}" class="nav-link">--}}
-{{--                        <i class="nav-icon fas fa-list"></i>--}}
-{{--                        <p>--}}
-{{--                            Категории--}}
-{{--                        </p>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
+                <li class="nav-item">
+                    <a href="{{route('admin.bookcategory.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-list"></i>
+                        <p>
+                            Категории продуктов
+                        </p>
+                    </a>
+                </li>
 {{--                <li class="nav-item">--}}
 {{--                    <a href="{{route('admin.leveledu.index')}}" class="nav-link">--}}
 {{--                        <i class="nav-icon fas fa-user-graduate"></i>--}}
@@ -118,14 +118,14 @@
 {{--                        </p>--}}
 {{--                    </a>--}}
 {{--                </li>--}}
-                <li class="nav-item">
-                    <a href="{{route('admin.link.index')}}" class="nav-link">
-                        <i class="nav-icon fas fa-link"></i>
-                        <p>
-                            Ссылки
-                        </p>
-                    </a>
-                </li>
+{{--                <li class="nav-item">--}}
+{{--                    <a href="{{route('admin.link.index')}}" class="nav-link">--}}
+{{--                        <i class="nav-icon fas fa-link"></i>--}}
+{{--                        <p>--}}
+{{--                            Ссылки--}}
+{{--                        </p>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
 {{--                <li class="nav-item">--}}
 {{--                    <a href="{{route('admin.agent.index')}}" class="nav-link">--}}
 {{--                        <i class="nav-icon fas fa-magnet"></i>--}}
