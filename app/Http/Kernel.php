@@ -74,6 +74,9 @@ class Kernel extends HttpKernel
         'cc' => ContactcenterMiddleware::class,
         'agent' => AgentMiddleware::class,
         'user' => UserMiddleware::class,
+        'role' => \Spatie\Permission\Middleware\RoleMiddleware::class,
+        'permission' => \Spatie\Permission\Middleware\PermissionMiddleware::class,
+        'role_or_permission' => \Spatie\Permission\Middleware\RoleOrPermissionMiddleware::class,
         'cookie' => \App\Http\Middleware\SetUserCookie::class,
         'request_logger' => \App\Http\Middleware\LogRequests::class
     ];

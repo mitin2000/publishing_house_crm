@@ -55,15 +55,24 @@ Route::group(['namespace' => 'Services', 'prefix' => 'services', 'middleware' =>
     Route::get('/', 'IndexController')->name('services.index');
 });
 
-Route::get('/video',function () {return view('pages.video');});
 
-Route::get('/guide',function () {return response()->file('files/2_Документация,_содержащая_описание_функциональных_характеристик.pdf');});
 
 Route::get('/sitemap.xml', 'SitemapController@index');
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('cookie');
+
+//Ноавя админка с ролями
+Route::group(['namespace' => 'Cms', 'prefix' => 'cms', 'middleware' => ['role:super-admin|admin']], function() {
+    Route::group(['namespace' => 'Main'], function () {
+        Route::get('/', [\App\Http\Controllers\Cms\MainController::class, 'index'])->name('cms.main.index');
+    });
+    Route::group(['as' => 'cms.'], function() {
+        Route::resource('user', UserController::class);
+    });
+
+});
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin']],function (){
     Route::group(['namespace' => 'Main'],function (){
@@ -254,7 +263,7 @@ Route::group(['namespace' => 'Basket', 'prefix' => 'basket', 'middleware' => ['a
 Route::post('/book/saveorder', 'BookOrderController@saveOrder')->name('book.saveorder');
 
 
-Route::group(['namespace' => 'BookOrder', 'prefix' => 'book_order'],function (){
+Route::group(['namespace' => 'BookOrder', 'prefix' => 'book_order', 'middleware' => ['auth', 'user']],function (){
     Route::get('/create', [\App\Http\Controllers\BookOrderController::class, 'create'])->name('book_order.create');
     Route::post('/store', [\App\Http\Controllers\BookOrderController::class, 'store'])->name('book_order.store');
 });
@@ -284,5 +293,20 @@ Route::group(['namespace' => 'Order', 'prefix' => 'order'],function (){
     Route::post('/create/finish', [\App\Http\Controllers\OrderController::class, 'store'])->name('order.store');
 });
 
-//Route::post('/webhook', 'WebhookController@index');
+Route::group(['middleware' => ['role:super-admin|admin']], function() {
+
+    Route::resource('permissions', PermissionController::class);
+    Route::get('permissions/{permissionId}/delete', [App\Http\Controllers\PermissionController::class, 'destroy']);
+
+    Route::resource('roles', RoleController::class);
+    Route::get('roles/{roleId}/delete', [App\Http\Controllers\RoleController::class, 'destroy']);
+    Route::get('roles/{roleId}/give-permissions', [App\Http\Controllers\RoleController::class, 'addPermissionToRole']);
+    Route::put('roles/{roleId}/give-permissions', [App\Http\Controllers\RoleController::class, 'givePermissionToRole']);
+
+    Route::resource('users', UserController::class);
+    Route::get('users/{userId}/delete', [App\Http\Controllers\UserController::class, 'destroy']);
+
+});
+
+
 

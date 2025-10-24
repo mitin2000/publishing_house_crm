@@ -42,6 +42,11 @@
                                     {{route('user.index')}}">Личный кабинет
                             @endswitch
                                 </a>
+                                @if(auth()->user()->hasRole(['super-admin', 'admin']))
+                                    <a class="dropdown-item btn btn-link" href="{{route('cms.main.index')}}">
+                                        Новая административная панель
+                                    </a>
+                                @endif
                                 <a class="dropdown-item" href="#">
                                     <form action="{{route('logout')}}" method="post">
                                         @csrf
