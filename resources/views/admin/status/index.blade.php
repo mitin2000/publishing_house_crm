@@ -45,7 +45,7 @@
                                         <td>{{$status->id}}</td>
                                         <td>{{$status->title}}</td>
                                         <td>
-                                            <div class="status-color" style="background-color: {{$status->color}}"></div>
+                                            <div class="status-color" style="width: 20px; height: 20px; background-color: {{$status->color}};"></div>
                                         </td>
                                         <td>{{$status->description}}</td>
                                         <td>{{$status->created_at}}</td>

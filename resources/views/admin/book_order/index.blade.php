@@ -53,7 +53,7 @@
                                         <td>{{$order->phone}}</td>
                                         <td>{{$order->address}}</td>
                                         <td>{{$order->amount}}</td>
-                                        <td>{{$order->status}}</td>
+                                        <td><span class="badge rounded-pill" style="text-align: center; background-color: {{$order->status->color}}; ">{{$order->status->title}}</span></td>
                                         <td>{{$order->created_at}}</td>
                                         <td>
                                             <a  href="{{route('admin.book_order.show', $order->id)}}"><i class="far fa-eye"></i></a>

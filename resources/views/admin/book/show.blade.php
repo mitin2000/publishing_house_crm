@@ -49,14 +49,16 @@
                                 </tr>
                                 <tr>
                                     <td>Категория</td>
-                                    <td></td>
+                                    <td>
+                                   {{$book->category->title}}
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>ISBN</td>
                                     <td>{{$book->isbn}}</td>
                                 </tr>
                                 <tr>
-                                    <td>ISBN</td>
+                                    <td>Год выпуска</td>
                                     <td>{{$book->year}}</td>
                                 </tr>
                                 <tr>

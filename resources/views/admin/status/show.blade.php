@@ -35,7 +35,7 @@
                                 <tr>
                                     <td>Цвет</td>
                                     <td>
-                                        <div class="status-color" style="background-color: {{$status->color}}"></div>
+                                        <div class="status-color" style="width: 20px; height: 20px; background-color: {{$status->color}};"></div>
                                     </td>
                                 </tr>
                                 <tr>
