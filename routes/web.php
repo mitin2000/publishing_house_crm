@@ -70,6 +70,8 @@ Route::group(['namespace' => 'Cms', 'prefix' => 'cms', 'middleware' => ['role:su
     });
     Route::group(['as' => 'cms.'], function() {
         Route::resource('user', UserController::class);
+        Route::resource('book', BookController::class);
+        Route::resource('order', OrderController::class);
     });
 
 });

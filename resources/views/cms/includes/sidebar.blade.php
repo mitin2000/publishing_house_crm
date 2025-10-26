@@ -71,7 +71,7 @@
 {{--                    </ul>--}}
 {{--                </li>--}}
                 <li class="nav-item">
-                    <a href="{{route('admin.book.index')}}" class="nav-link">
+                    <a href="{{route('cms.book.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-book-open"></i>
                         <p>
                             Книги
@@ -87,7 +87,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('admin.author.index')}}" class="nav-link">
+                    <a href="{{route('cms.author.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Авторы
@@ -151,7 +151,7 @@
 {{--                    </a>--}}
 {{--                </li>--}}
                 <li class="nav-item">
-                    <a href="{{route('admin.book_order.index')}}" class="nav-link">
+                    <a href="{{route('cms.order.index')}}" class="nav-link">
                         <i class="nav-icon far fa-usd"></i>
                         <p>
                             Заказы
