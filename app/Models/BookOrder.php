@@ -14,6 +14,11 @@ class BookOrder extends Model
     protected $table = 'book_orders';
     protected $guarded = false;
 
+    public function status()
+    {
+        return $this->belongsTo(Status::class);
+    }
+
     public function items() {
         return $this->hasMany(BookOrderItem::class);
     }

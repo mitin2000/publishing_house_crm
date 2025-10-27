@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Статусы</h1>
+                    <h1>Категории продуктов</h1>
                 </div>
 
             </div><!-- /.row -->
@@ -19,7 +19,7 @@
 
             <div class="row mb-3">
                 <div class="col">
-                    <a href="{{route('admin.status.create')}}" type="button" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Создать</a>
+                    <a href="{{route('admin.bookcategory.create')}}" type="button" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Создать</a>
                 </div>
             </div>
 
@@ -28,31 +28,25 @@
                     <div class="card">
                         <!-- /.card-header -->
                         <div class="card-body table-responsive p-0">
-                            <table class="table table-hover">
+                            <table class="table table-hover text-nowrap">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
                                     <th>Название</th>
-                                    <th>Цвет</th>
-                                    <th>Описание</th>
                                     <th>Дата создания</th>
                                     <th colspan="3">Действия</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($statuses as $status)
+                                @foreach($categories as $category)
                                     <tr>
-                                        <td>{{$status->id}}</td>
-                                        <td>{{$status->title}}</td>
+                                        <td>{{$category->id}}</td>
+                                        <td>{{$category->title}}</td>
+                                        <td>{{$category->created_at}}</td>
+                                        <td><a  href="{{route('admin.bookcategory.show', $category->id)}}"><i class="far fa-eye"></i></a></td>
+                                        <td><a  href="{{route('admin.bookcategory.edit', $category->id)}}" class="text-success"><i class="fas fa-pen"></i></a></td>
                                         <td>
-                                            <div class="status-color" style="width: 20px; height: 20px; background-color: {{$status->color}};"></div>
-                                        </td>
-                                        <td>{{$status->description}}</td>
-                                        <td>{{$status->created_at}}</td>
-                                        <td><a  href="{{route('admin.status.show', $status->id)}}"><i class="far fa-eye"></i></a></td>
-                                        <td><a  href="{{route('admin.status.edit', $status->id)}}" class="text-success"><i class="fas fa-pen"></i></a></td>
-                                        <td>
-                                            <form method="post" action="{{route('admin.status.delete', $status->id)}}">
+                                            <form method="post" action="{{route('admin.bookcategory.delete', $category->id)}}">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="bg-transparent border-0" type="submit"><i class="fas fa-trash text-danger" role="button"></i></button>

@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>{{$status->title}}</h1>
+                    <h1>{{$category->title}}</h1>
                 </div>
 
             </div><!-- /.row -->
@@ -18,7 +18,7 @@
             <!-- Small boxes (Stat box) -->
 
             <div class="row">
-                <div class="col">
+                <div class="col-6">
                     <div class="card">
                         <!-- /.card-header -->
                         <div class="card-body table-responsive p-0">
@@ -26,29 +26,19 @@
                                 <tbody>
                                 <tr>
                                     <td>ID</td>
-                                    <td>{{$status->id}}</td>
+                                    <td>{{$category->id}}</td>
                                 </tr>
                                 <tr>
                                     <td>Название</td>
-                                    <td>{{$status->title}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Цвет</td>
-                                    <td>
-                                        <div class="status-color" style="width: 20px; height: 20px; background-color: {{$status->color}};"></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Описание</td>
-                                    <td>{{$status->description}}</td>
+                                    <td>{{$category->title}}</td>
                                 </tr>
                                 <tr>
                                     <td>Дата создания</td>
-                                    <td>{{$status->created_at}}</td>
+                                    <td>{{$category->created_at}}</td>
                                 </tr>
                                 <tr>
                                     <td>Дата обновления</td>
-                                    <td>{{$status->updated_at}}</td>
+                                    <td>{{$category->updated_at}}</td>
                                 </tr>
 
                                 </tbody>
@@ -62,14 +52,14 @@
 
             <!-- /.row -->
             <div class="row">
-                <div class="col">
-                    <a class="btn btn-outline-primary mr-2" href="{{route('admin.status.edit', $status->id)}}">Редактировать</a>
-                    <a class="btn btn-outline-secondary" href="{{route('admin.status.index')}}">Назад</a>
+                <div class="col-3">
+                    <a class="btn btn-outline-primary mr-2" href="{{route('admin.bookcategory.edit', $category->id)}}">Редактировать</a>
+                    <a class="btn btn-outline-secondary" href="{{route('admin.bookcategory.index')}}">Назад</a>
                 </div>
-                <div class="col">
+                <div class="col-3">
                     <div class="d-flex justify-content-end">
                         <div>
-                            <form method="post" action="{{route('admin.status.delete', $status->id)}}">
+                            <form method="post" action="{{route('admin.bookcategory.delete', $category->id)}}">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger float-end" type="submit">Удалить</button>
@@ -78,7 +68,7 @@
                     </div>
 
                 </div>
-
+                <div class="col-6"></div>
 
             </div>
 

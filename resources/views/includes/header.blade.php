@@ -57,7 +57,7 @@
                         </li>
                         @if(auth()->user()->role == 10)
                         <li class="nav-item">
-                            <a href="{{route('basket.index')}}"><i class="fa fa-shopping-cart"></i></a>
+                            <a style=" font-size: 20px;" href="{{route('basket.index')}}"><i class="fa fa-shopping-cart"></i></a>
                         </li>
                         @endif
                     </ul>
