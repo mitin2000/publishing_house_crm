@@ -72,6 +72,8 @@ Route::group(['namespace' => 'Cms', 'prefix' => 'cms', 'middleware' => ['role:su
         Route::resource('user', UserController::class);
         Route::resource('book', BookController::class);
         Route::resource('order', OrderController::class);
+        Route::resource('author', AuthorController::class);
+        Route::resource('status', StatusController::class);
     });
 
 });

@@ -3,12 +3,9 @@
 namespace App\Http\Controllers\Cms;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Author\StoreRequest;
-use App\Http\Requests\Admin\Author\UpdateRequest;
-use App\Models\Author;
 use Illuminate\Http\Request;
 
-class AuthorController extends Controller
+class StatusController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +14,7 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        $authors = Author::all();
-        return view('cms.author.index', compact('authors'));
+        //
     }
 
     /**
@@ -28,7 +24,7 @@ class AuthorController extends Controller
      */
     public function create()
     {
-        return view('cms.author.create');
+        //
     }
 
     /**
@@ -37,12 +33,9 @@ class AuthorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRequest $request)
+    public function store(Request $request)
     {
-        $data = $request->validated();
-        Author::firstOrCreate($data);
-
-        return redirect()->route('cms.author.index');
+        //
     }
 
     /**
@@ -51,9 +44,9 @@ class AuthorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Author $author)
+    public function show($id)
     {
-        return view('cms.author.show', compact('author'));
+        //
     }
 
     /**
@@ -62,9 +55,9 @@ class AuthorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Author $author)
+    public function edit($id)
     {
-        return view('cms.author.edit', compact('author'));
+        //
     }
 
     /**
@@ -74,12 +67,9 @@ class AuthorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRequest $request, Author $author)
+    public function update(Request $request, $id)
     {
-        $data = $request->validated();
-        $author->update($data);
-
-        return redirect()->route('cms.author.show', compact('author'));
+        //
     }
 
     /**
@@ -88,9 +78,8 @@ class AuthorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Author $author)
+    public function destroy($id)
     {
-        $author->delete();
-        return redirect()->route('cms.author.index');
+        //
     }
 }
