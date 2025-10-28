@@ -15,14 +15,14 @@
     <section class="content">
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
-
+            @can('create book')
             <div class="row mb-3">
                 <div class="col">
                     <a href="{{route('cms.book.create')}}" type="button" class="btn btn-primary"><i
                             class="fa fa-plus-circle"></i> Создать</a>
                 </div>
             </div>
-
+            @endcan
             <div class="row">
                 <div class="col">
                     <div class="card">
@@ -58,9 +58,12 @@
                                             <td>
                                                 <a href="{{route('cms.book.show', $book->id)}}"><i
                                                         class="far fa-eye"></i></a>
+                                                @can('update book')
                                                 <a href="{{route('cms.book.edit', $book->id)}}"
                                                    class="text-success"><i class="fas fa-pen"></i></a>
+                                                @endcan
 
+                                                @can('delete book')
                                                 <form method="post" action="{{route('cms.book.destroy', $book->id)}}"
                                                       class="d-inline-block">
                                                     @csrf
@@ -68,6 +71,7 @@
                                                     <button class="bg-transparent border-0" type="submit"><i
                                                             class="fas fa-trash text-danger" role="button"></i></button>
                                                 </form>
+                                                @endcan
                                             </td>
                                         </tr>
                                     @endforeach

@@ -88,7 +88,9 @@
             <!-- /.row -->
             <div class="row">
                 <div class="col">
+                    @can('update book')
                     <a class="btn btn-outline-primary mr-2" href="{{route('cms.book.edit', $book->id)}}">Редактировать</a>
+                    @endcan
                     <a class="btn btn-outline-secondary" href="{{route('cms.book.index')}}">Назад</a>
                 </div>
 

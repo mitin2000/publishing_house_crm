@@ -16,13 +16,13 @@
     <section class="content">
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
-
+            @can('create author')
             <div class="row mb-3">
                 <div class="col">
                     <a href="{{route('cms.author.create')}}" type="button" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Создать</a>
                 </div>
             </div>
-
+            @endcan
             <div class="row">
                 <div class="col">
                     <div class="card">
@@ -43,14 +43,24 @@
                                         <td>{{$author->id}}</td>
                                         <td>{{$author->name}}</td>
                                         <td>{{$author->created_at}}</td>
-                                        <td><a  href="{{route('cms.author.show', $author->id)}}"><i class="far fa-eye"></i></a></td>
-                                        <td><a  href="{{route('cms.author.edit', $author->id)}}" class="text-success"><i class="fas fa-pen"></i></a></td>
                                         <td>
+                                            @can('view author')
+                                            <a  href="{{route('cms.author.show', $author->id)}}"><i class="far fa-eye"></i></a>
+                                            @endcan
+                                        </td>
+                                        <td>
+                                            @can('update author')
+                                            <a  href="{{route('cms.author.edit', $author->id)}}" class="text-success"><i class="fas fa-pen"></i></a>
+                                            @endcan
+                                        </td>
+                                        <td>
+                                            @can('delete author')
                                             <form method="post" action="{{route('cms.author.destroy', $author->id)}}">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="bg-transparent border-0" type="submit"><i class="fas fa-trash text-danger" role="button"></i></button>
                                             </form>
+                                            @endcan
                                         </td>
                                     </tr>
                                 @endforeach

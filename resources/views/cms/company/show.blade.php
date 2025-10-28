@@ -60,9 +60,12 @@
             <!-- /.row -->
             <div class="row">
                 <div class="col-3">
+                    @can('update company')
                     <a class="btn btn-outline-primary mr-2" href="{{route('cms.company.edit', $company->id)}}">Редактировать</a>
+                    @endcan
                     <a class="btn btn-outline-secondary" href="{{route('cms.company.index')}}">Назад</a>
                 </div>
+                @can('delete company')
                 <div class="col-3">
                     <div class="d-flex justify-content-end">
                         <div>
@@ -73,8 +76,8 @@
                             </form>
                         </div>
                     </div>
-
                 </div>
+                @endcan
                 <div class="col-6"></div>
 
             </div>

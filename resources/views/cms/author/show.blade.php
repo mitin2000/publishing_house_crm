@@ -53,9 +53,12 @@
             <!-- /.row -->
             <div class="row">
                 <div class="col-3">
-                    <a class="btn btn-outline-primary mr-2" href="{{route('cms.author.edit', $author->id)}}">Редактировать</a>
+                    @can('update author')
+                        <a class="btn btn-outline-primary mr-2" href="{{route('cms.author.edit', $author->id)}}">Редактировать</a>
+                    @endcan
                     <a class="btn btn-outline-secondary" href="{{route('cms.author.index')}}">Назад</a>
                 </div>
+                @can('delete author')
                 <div class="col-3">
                     <div class="d-flex justify-content-end">
                         <div>
@@ -68,6 +71,7 @@
                     </div>
 
                 </div>
+                @endcan
                 <div class="col-6"></div>
 
             </div>

@@ -41,6 +41,8 @@
                     </a>
                 </li>
                 @endcan
+
+                @can('view company')
                 <li class="nav-item">
                     <a href="{{route('cms.company.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-briefcase"></i>
@@ -49,6 +51,8 @@
                         </p>
                     </a>
                 </li>
+                @endcan
+
                 @can('view book')
                 <li class="nav-item">
                     <a href="{{route('cms.book.index')}}" class="nav-link">
@@ -59,6 +63,8 @@
                     </a>
                 </li>
                 @endcan
+
+                @can('view author')
                 <li class="nav-item">
                     <a href="{{route('cms.author.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
@@ -75,6 +81,7 @@
                         </p>
                     </a>
                 </li>
+                @endcan
                 <li class="nav-item">
                     <a href="{{route('cms.status.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-exclamation-circle"></i>
