@@ -47,42 +47,11 @@
                         </p>
                     </a>
                 </li>
-{{--                <li class="nav-item">--}}
-{{--                    <a href="#" class="nav-link">--}}
-{{--                        <i class="nav-icon fas fa-chart-pie"></i>--}}
-{{--                        <p>--}}
-{{--                            О нас--}}
-{{--                            <i class="right fas fa-angle-left"></i>--}}
-{{--                        </p>--}}
-{{--                    </a>--}}
-{{--                    <ul class="nav nav-treeview" style="display: none;">--}}
-{{--                        <li class="nav-item">--}}
-{{--                            <a href="{{route('admin.about.index')}}" class="nav-link">--}}
-{{--                                <i class="far fa-circle nav-icon"></i>--}}
-{{--                                <p>Основные сведения</p>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
-{{--                        <li class="nav-item">--}}
-{{--                            <a href="{{route('admin.document.index')}}" class="nav-link">--}}
-{{--                                <i class="far fa-folder-open nav-icon"></i>--}}
-{{--                                <p>Документы</p>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
-{{--                </li>--}}
                 <li class="nav-item">
                     <a href="{{route('cms.book.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-book-open"></i>
                         <p>
                             Книги
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{route('admin.course.index')}}" class="nav-link">
-                        <i class="nav-icon fa-solid fa-book"></i>
-                        <p>
-                            Курсы
                         </p>
                     </a>
                 </li>
@@ -94,62 +63,22 @@
                         </p>
                     </a>
                 </li>
-{{--                <li class="nav-item">--}}
-{{--                    <a href="{{route('admin.category.index')}}" class="nav-link">--}}
-{{--                        <i class="nav-icon fas fa-list"></i>--}}
-{{--                        <p>--}}
-{{--                            Категории--}}
-{{--                        </p>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-{{--                <li class="nav-item">--}}
-{{--                    <a href="{{route('admin.leveledu.index')}}" class="nav-link">--}}
-{{--                        <i class="nav-icon fas fa-user-graduate"></i>--}}
-{{--                        <p>--}}
-{{--                            Уровни образования--}}
-{{--                        </p>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-{{--                <li class="nav-item">--}}
-{{--                    <a href="{{route('admin.region.index')}}" class="nav-link">--}}
-{{--                        <i class="nav-icon fas fa-map-location-dot fa-map"></i>--}}
-{{--                        <p>--}}
-{{--                            Регионы--}}
-{{--                        </p>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
                 <li class="nav-item">
-                    <a href="{{route('admin.link.index')}}" class="nav-link">
-                        <i class="nav-icon fas fa-link"></i>
+                    <a href="{{route('cms.bookcategory.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-list"></i>
                         <p>
-                            Ссылки
+                            Категории продуктов
                         </p>
                     </a>
                 </li>
-{{--                <li class="nav-item">--}}
-{{--                    <a href="{{route('admin.agent.index')}}" class="nav-link">--}}
-{{--                        <i class="nav-icon fas fa-magnet"></i>--}}
-{{--                        <p>--}}
-{{--                            Агенты--}}
-{{--                        </p>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
                 <li class="nav-item">
-                    <a href="{{route('admin.status.index')}}" class="nav-link">
+                    <a href="{{route('cms.status.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-exclamation-circle"></i>
                         <p>
                             Статусы
                         </p>
                     </a>
                 </li>
-{{--                <li class="nav-item">--}}
-{{--                    <a href="{{route('admin.lid.index')}}" class="nav-link">--}}
-{{--                        <i class="nav-icon far fa-bell"></i>--}}
-{{--                        <p>--}}
-{{--                            Заявки--}}
-{{--                        </p>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
                 <li class="nav-item">
                     <a href="{{route('cms.order.index')}}" class="nav-link">
                         <i class="nav-icon far fa-usd"></i>
@@ -158,16 +87,7 @@
                         </p>
                     </a>
                 </li>
-{{--                <li class="nav-item">--}}
-{{--                    <a href="{{route('admin.report.index')}}" class="nav-link">--}}
-{{--                        <i class="nav-icon fas fa-chart-line"></i>--}}
-{{--                        <p>--}}
-{{--                            Отчеты--}}
-{{--                        </p>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
             </ul>
-
         </nav>
         <!-- /.sidebar-menu -->
     </div>

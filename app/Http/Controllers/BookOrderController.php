@@ -18,6 +18,7 @@ class BookOrderController extends Controller
 
     public function store(StoreRequest $request){
         $data = $request->validated();
+        dd($data);
         $user_id = auth()->check() ? auth()->user()->id : null;
         $basket = Basket::where('user_id', $user_id)->get();
         $orderData['user_id'] = $user_id;

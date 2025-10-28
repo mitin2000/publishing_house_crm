@@ -74,9 +74,31 @@ Route::group(['namespace' => 'Cms', 'prefix' => 'cms', 'middleware' => ['role:su
         Route::resource('order', OrderController::class);
         Route::resource('author', AuthorController::class);
         Route::resource('status', StatusController::class);
+        Route::resource('bookcategory', BookCategoryController::class);
     });
 
 });
+
+Route::group(['namespace' => 'User', 'prefix' => 'user', 'middleware' => ['role:user']],function (){
+    Route::get('/', 'IndexController')->name('user.index');
+});
+
+Route::group(['namespace' => 'Basket', 'prefix' => 'basket', 'middleware' => ['role:user']],function (){
+    Route::get('/',[App\Http\Controllers\BasketController::class, 'index'])->name('basket.index');
+    Route::post('/store',[App\Http\Controllers\BasketController::class, 'store'])->name('basket.store');
+    Route::post('/edit',[App\Http\Controllers\BasketController::class, 'edit'])->name('basket.edit');
+    Route::post('/delete',[App\Http\Controllers\BasketController::class, 'delete'])->name('basket.delete');
+});
+
+Route::post('/book/saveorder', 'BookOrderController@saveOrder')->name('book.saveorder');
+
+
+Route::group(['namespace' => 'BookOrder', 'prefix' => 'book_order', 'middleware' => ['role:user']],function (){
+    Route::get('/create', [\App\Http\Controllers\BookOrderController::class, 'create'])->name('book_order.create');
+    Route::post('/store', [\App\Http\Controllers\BookOrderController::class, 'store'])->name('book_order.store');
+});
+
+
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin']],function (){
     Route::group(['namespace' => 'Main'],function (){
@@ -263,26 +285,6 @@ Route::group(['namespace' => 'Agent', 'prefix' => 'agent', 'middleware' => ['aut
         Route::get('/', 'IndexController')->name('agent.report.index');
     });
 });
-
-Route::group(['namespace' => 'User', 'prefix' => 'user', 'middleware' => ['auth', 'user']],function (){
-        Route::get('/', 'IndexController')->name('user.index');
-});
-
-Route::group(['namespace' => 'Basket', 'prefix' => 'basket', 'middleware' => ['auth', 'user']],function (){
-    Route::get('/',[App\Http\Controllers\BasketController::class, 'index'])->name('basket.index');
-    Route::post('/store',[App\Http\Controllers\BasketController::class, 'store'])->name('basket.store');
-    Route::post('/edit',[App\Http\Controllers\BasketController::class, 'edit'])->name('basket.edit');
-    Route::post('/delete',[App\Http\Controllers\BasketController::class, 'delete'])->name('basket.delete');
-});
-
-Route::post('/book/saveorder', 'BookOrderController@saveOrder')->name('book.saveorder');
-
-
-Route::group(['namespace' => 'BookOrder', 'prefix' => 'book_order', 'middleware' => ['auth', 'user']],function (){
-    Route::get('/create', [\App\Http\Controllers\BookOrderController::class, 'create'])->name('book_order.create');
-    Route::post('/store', [\App\Http\Controllers\BookOrderController::class, 'store'])->name('book_order.store');
-});
-
 
 Route::group(['namespace' => 'Lid', 'prefix' => 'lid', 'middleware' => ['cookie']],function (){
     Route::get('/create-old', 'CreateController')->name('lid.create_old');

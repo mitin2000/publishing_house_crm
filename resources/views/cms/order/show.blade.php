@@ -18,11 +18,20 @@
 
             <div class="row">
                 <div class="col-6">
+
+                    <div class="alert" style="background-color: {{$order->status->color}} !important; color:{{contrast_color($order->status->color)}}">
+                        {{$order->status->title}}
+                    </div>
+
                     <div class="card">
                         <!-- /.card-header -->
                         <div class="card-body table-responsive p-0">
                             <table class="table table-hover text-nowrap">
                                 <tbody>
+                                <tr>
+                                    <td>ИНН покупателя</td>
+                                    <td>{{$order->inn}}</td>
+                                </tr>
                                 <tr>
                                     <td>ФИО покупателя</td>
                                     <td>{{$order->customer_name}}</td>

@@ -55,11 +55,13 @@
                                 </a>
                             </div>
                         </li>
-                        @if(auth()->user()->role == 10)
-                        <li class="nav-item">
-                            <a style=" font-size: 20px;" href="{{route('basket.index')}}"><i class="fa fa-shopping-cart"></i></a>
-                        </li>
-                        @endif
+                        @auth
+                            @role('user')
+                            <li class="nav-item">
+                                <a style=" font-size: 20px;" href="{{route('basket.index')}}"><i class="fa fa-shopping-cart"></i></a>
+                            </li>
+                            @endrole
+                        @endauth
                     </ul>
                 @else
                     <ul class="navbar-nav ml-auto p-3">

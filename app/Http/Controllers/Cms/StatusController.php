@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Cms;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Status\StoreRequest;
+use App\Http\Requests\Admin\Status\UpdateRequest;
+use App\Models\Status;
 use Illuminate\Http\Request;
 
 class StatusController extends Controller
@@ -14,7 +17,8 @@ class StatusController extends Controller
      */
     public function index()
     {
-        //
+        $statuses = Status::whereNull('type')->get();
+        return view('cms.status.index', compact('statuses'));
     }
 
     /**
@@ -24,7 +28,7 @@ class StatusController extends Controller
      */
     public function create()
     {
-        //
+        return view('cms.status.create');
     }
 
     /**
@@ -33,9 +37,12 @@ class StatusController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        //
+        $data = $request->validated();
+        Status::firstOrCreate($data);
+
+        return redirect()->route('cms.status.index');
     }
 
     /**
@@ -44,9 +51,9 @@ class StatusController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Status $status)
     {
-        //
+        return view('cms.status.show', compact('status'));
     }
 
     /**
@@ -55,9 +62,9 @@ class StatusController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Status $status)
     {
-        //
+        return view('cms.status.edit', compact('status'));
     }
 
     /**
@@ -67,9 +74,12 @@ class StatusController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, Status $status)
     {
-        //
+        $data = $request->validated();
+        $status->update($data);
+
+        return redirect()->route('cms.status.show', compact('status'));
     }
 
     /**
@@ -78,8 +88,9 @@ class StatusController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Status $status)
     {
-        //
+        $status->delete();
+        return redirect()->route('cms.status.index');
     }
 }
