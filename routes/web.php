@@ -64,7 +64,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('cookie');
 
 //Ноавя админка с ролями
-Route::group(['namespace' => 'Cms', 'prefix' => 'cms', 'middleware' => ['role:super-admin|admin']], function() {
+Route::group(['namespace' => 'Cms', 'prefix' => 'cms', 'middleware' => ['role:super-admin|admin|manager']], function() {
     Route::group(['namespace' => 'Main'], function () {
         Route::get('/', [\App\Http\Controllers\Cms\MainController::class, 'index'])->name('cms.main.index');
     });
@@ -75,6 +75,7 @@ Route::group(['namespace' => 'Cms', 'prefix' => 'cms', 'middleware' => ['role:su
         Route::resource('author', AuthorController::class);
         Route::resource('status', StatusController::class);
         Route::resource('bookcategory', BookCategoryController::class);
+        Route::resource('company', CompanyController::class);
     });
 
 });

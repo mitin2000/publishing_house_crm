@@ -42,7 +42,7 @@
                                     {{route('user.index')}}">Личный кабинет
                             @endswitch
                                 </a>
-                                @if(auth()->user()->hasRole(['super-admin', 'admin']))
+                                @if(auth()->user()->hasRole(['super-admin', 'admin', 'manager']))
                                     <a class="dropdown-item btn btn-link" href="{{route('cms.main.index')}}">
                                         Новая административная панель
                                     </a>
