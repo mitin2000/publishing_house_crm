@@ -26,7 +26,7 @@
                             </p></div>
                     </div>
                     <div class="col-md-6">
-                        @if(isset(auth()->user()->id))
+                        @if(auth()->user()->hasRole(['user']))
                             <div id="add_to_basket" class="col pb-3">
                             @if($is_basket === true)
                                     <a href="{{route('basket.index')}}">
@@ -42,6 +42,7 @@
                                 </form>
                             @endif
                         </div>
+                        @else
                         @endif
                         <div>Описание</div>
                         <div>

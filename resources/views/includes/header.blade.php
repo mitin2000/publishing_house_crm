@@ -29,22 +29,13 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="blogDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{auth()->user()->name}}</a>
                             <div class="dropdown-menu" aria-labelledby="blogDropdown">
-                               <!-- <a class="dropdown-item btn btn-link" href="#">
-                                    Настройки
-                                </a> -->
-                                <a class="dropdown-item btn btn-link" href="
-                            @switch(auth()->user()->role)
-                            @case(1) {{route('admin.main.index')}}">Административная панель
-                            @break
-                            @case(3) {{route('cc.main.index')}}">Административная панель
-                            @break
-                            @default
-                                    {{route('user.index')}}">Личный кабинет
-                            @endswitch
-                                </a>
                                 @if(auth()->user()->hasRole(['super-admin', 'admin', 'manager']))
                                     <a class="dropdown-item btn btn-link" href="{{route('cms.main.index')}}">
                                         Новая административная панель
+                                    </a>
+                                    @else
+                                    <a class="dropdown-item btn btn-link" href="{{route('user.index')}}">
+                                        Личный кабинет
                                     </a>
                                 @endif
                                 <a class="dropdown-item" href="#">
