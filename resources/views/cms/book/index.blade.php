@@ -20,6 +20,8 @@
                 <div class="col">
                     <a href="{{route('cms.book.create')}}" type="button" class="btn btn-primary"><i
                             class="fa fa-plus-circle"></i> Создать</a>
+                    <a href="{{route('cms.book.create_from_wb')}}" type="button" class="btn btn-primary"><i
+                            class="fa fa-plus-circle"></i> Создать из WB</a>
                 </div>
             </div>
             @endcan

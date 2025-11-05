@@ -70,6 +70,7 @@ Route::group(['namespace' => 'Cms', 'prefix' => 'cms', 'middleware' => ['role:su
     });
     Route::group(['as' => 'cms.'], function() {
         Route::resource('user', UserController::class);
+        Route::get('book/create_from_wb', [App\Http\Controllers\Cms\BookController::class, 'createFromWB'])->name('book.create_from_wb');
         Route::resource('book', BookController::class);
         Route::resource('order', OrderController::class);
         Route::resource('author', AuthorController::class);

@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\Book\UpdateRequest;
 use App\Models\Author;
 use App\Models\Book;
 use App\Models\BookCategory;
+use App\Service\WBService;
 use Illuminate\Http\Request;
 use App\Service\BookService;
 
@@ -16,7 +17,7 @@ class BookController extends Controller
 
     private $service;
 
-    public function __construct(BookService $service)
+    public function __construct(BookService $service, WBService $wbservice)
     {
         $this->middleware('permission:view book', ['only' => ['index']]);
         $this->middleware('permission:create book', ['only' => ['create','store']]);
@@ -24,6 +25,7 @@ class BookController extends Controller
         $this->middleware('permission:delete book', ['only' => ['destroy']]);
 
         $this->service = $service;
+        $this->wbservice = $wbservice;
     }
 
     /**
@@ -112,5 +114,15 @@ class BookController extends Controller
     {
         $book->delete();
         return redirect()->route('cms.book.index');
+    }
+
+    public function createFromWB()
+    {
+        $authors = Author::all();
+        $categories = BookCategory::all();
+        $wbCards = $this->wbservice->list();
+        $json = json_encode($wbCards);
+        dump($this->wbservice->list());
+        return view('cms.book.create_from_wb', compact('authors', 'categories', 'wbCards', 'json'));
     }
 }
