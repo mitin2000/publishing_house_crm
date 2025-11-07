@@ -23,4 +23,9 @@ class Book extends Model
     {
         return $this->belongsTo(BookCategory::class);
     }
+
+    public function wb()
+    {
+        return $this->belongsTo(WB::class);
+    }
 }

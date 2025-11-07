@@ -142,6 +142,9 @@
                                     <div class="text-danger">{{$message}}</div>
                                     @enderror
                                 </div>
+                            <input type="hidden" name="nmID">
+                            <input type="hidden" name="imtID">
+                            <input type="hidden" name="nmUUID">
                     </div>
                         <div class="mb-3 mt-5">
                             <button type="submit" class="btn btn-primary">Создать</button>
@@ -168,6 +171,9 @@
                 $('input[name="image_wb"]').val(cardArr.cards[key].photos[0].big);
                 $('#prev_img-wb').html('<img class="image-for-card" src="'+cardArr.cards[key].photos[0].c246x328+'" />');
                 $('input[name="prev_img_wb"]').val(cardArr.cards[key].photos[0].c246x328);
+                $('input[name="nmID"]').val(cardArr.cards[key].nmID);
+                $('input[name="imtID"]').val(cardArr.cards[key].imtID);
+                $('input[name="nmUUID"]').val(cardArr.cards[key].nmUUID);
             })
         })
     </script>

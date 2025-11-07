@@ -15,10 +15,10 @@ class CreateWbItemTable extends Migration
     {
         Schema::create('wb_item', function (Blueprint $table) {
             $table->id();
-            $table->BigInteger('book_id')->unsigned();
-            $table->BigInteger('nmID')->unsigned();
-            $table->BigInteger('imtID')->unsigned();
-            $table->string('nmUUID');
+            $table->BigInteger('book_id')->unsigned()->nullable();
+            $table->BigInteger('nmID')->unsigned()->nullable();
+            $table->BigInteger('imtID')->unsigned()->nullable();
+            $table->string('nmUUID')->nullable();
             $table->timestamps();
         });
     }

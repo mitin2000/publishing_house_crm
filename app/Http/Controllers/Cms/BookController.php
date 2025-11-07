@@ -20,7 +20,7 @@ class BookController extends Controller
     public function __construct(BookService $service, WBService $wbservice)
     {
         $this->middleware('permission:view book', ['only' => ['index']]);
-        $this->middleware('permission:create book', ['only' => ['create','store']]);
+        $this->middleware('permission:create book', ['only' => ['create','store','createFromWB']]);
         $this->middleware('permission:update book', ['only' => ['update','edit']]);
         $this->middleware('permission:delete book', ['only' => ['destroy']]);
 

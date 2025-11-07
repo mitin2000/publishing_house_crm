@@ -26,8 +26,8 @@ class StoreRequest extends FormRequest
         return [
             'title' => 'required|string',
             'description' => 'required|string',
-            'prev_img' => 'required|file',
-            'image' => 'required|file',
+            'prev_img' => 'file',
+            'image' => 'file',
             'author_ids' => 'nullable|array',
             'author_ids.*' => 'nullable|integer|exists:authors,id',
             'year' => 'nullable|string',
@@ -35,6 +35,11 @@ class StoreRequest extends FormRequest
             'pub_number' => 'nullable|string',
             'price' => 'nullable|numeric',
             'category_id' => 'nullable|numeric',
+            'image_wb' => 'nullable|string',
+            'prev_img_wb' => 'nullable|string',
+            'nmID' => 'nullable|string',
+            'imtID' => 'nullable|string',
+            'nmUUID' => 'nullable|string',
         ];
     }
     public function messages()
