@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\Book\UpdateRequest;
 use App\Models\Author;
 use App\Models\Book;
 use App\Models\BookCategory;
+use App\Models\WB;
 use App\Service\WBService;
 use Illuminate\Http\Request;
 use App\Service\BookService;
@@ -48,6 +49,7 @@ class BookController extends Controller
     {
         $authors = Author::all();
         $categories = BookCategory::all();
+
         return view('cms.book.create', compact('authors', 'categories'));
     }
 
@@ -122,7 +124,10 @@ class BookController extends Controller
         $categories = BookCategory::all();
         $wbCards = $this->wbservice->list();
         $json = json_encode($wbCards);
-        dump($this->wbservice->list());
-        return view('cms.book.create_from_wb', compact('authors', 'categories', 'wbCards', 'json'));
+        $wbItems = WB::all();
+        $nmID = $wbItems->pluck('nmID');
+//        dump($this->wbservice->list());
+//        dump($nmID);
+        return view('cms.book.create_from_wb', compact('authors', 'categories', 'wbCards', 'json', 'nmID'));
     }
 }

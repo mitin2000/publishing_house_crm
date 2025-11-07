@@ -45,9 +45,11 @@ class BookService
                 $dataWB['nmID'] = $data['nmID'];
                 $dataWB['imtID'] = $data['imtID'];
                 $dataWB['nmUUID'] = $data['nmUUID'];
+                $dataWB['subjectID'] = $data['subjectID'];
                 unset($data['nmID']);
                 unset($data['imtID']);
                 unset($data['nmUUID']);
+                unset($data['subjectID']);
                 $WBItem = WB::firstOrCreate($dataWB);
             }
 

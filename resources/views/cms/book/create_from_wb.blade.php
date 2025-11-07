@@ -24,7 +24,9 @@
                             <option value="">---</option>
                             @if(!empty($wbCards['cards']))
                                 @foreach($wbCards['cards'] as $key => $card)
-                                    <option value="{{$key}}">{{$card['title']}}</option>
+                                    @if(!$nmID->contains($card['nmID']))
+                                        <option value="{{$key}}">{{$card['title']}}</option>
+                                    @endif
                                 @endforeach
                             @endif
 
@@ -145,6 +147,7 @@
                             <input type="hidden" name="nmID">
                             <input type="hidden" name="imtID">
                             <input type="hidden" name="nmUUID">
+                            <input type="hidden" name="subjectID">
                     </div>
                         <div class="mb-3 mt-5">
                             <button type="submit" class="btn btn-primary">Создать</button>
@@ -174,7 +177,13 @@
                 $('input[name="nmID"]').val(cardArr.cards[key].nmID);
                 $('input[name="imtID"]').val(cardArr.cards[key].imtID);
                 $('input[name="nmUUID"]').val(cardArr.cards[key].nmUUID);
+                $('input[name="subjectID"]').val(cardArr.cards[key].subjectID);
             })
+
+            function search(arr, value) {
+                if(!(arr instanceof Array)) return value === arr;
+                return arr.some(item => search(item, value));
+            }
         })
     </script>
 @endsection

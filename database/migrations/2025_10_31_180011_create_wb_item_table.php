@@ -19,6 +19,7 @@ class CreateWbItemTable extends Migration
             $table->BigInteger('nmID')->unsigned()->nullable();
             $table->BigInteger('imtID')->unsigned()->nullable();
             $table->string('nmUUID')->nullable();
+            $table->BigInteger('subjectID')->unsigned()->nullable();
             $table->timestamps();
         });
     }

@@ -40,6 +40,7 @@ class StoreRequest extends FormRequest
             'nmID' => 'nullable|string',
             'imtID' => 'nullable|string',
             'nmUUID' => 'nullable|string',
+            'subjectID' => 'nullable|string',
         ];
     }
     public function messages()
