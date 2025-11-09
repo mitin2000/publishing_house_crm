@@ -6,6 +6,7 @@ use App\Models\Basket;
 use App\Models\Book;
 use App\Models\BookOrder;
 use App\Models\BookOrderItem;
+use App\Models\Status;
 use Illuminate\Http\Request;
 use App\Http\Requests\Common\BookOrder\StoreRequest;
 
@@ -17,12 +18,12 @@ class BookOrderController extends Controller
     }
 
     public function store(StoreRequest $request){
+        $status = Status::where('type', 'order')->where('title', 'Новый заказ')->get();
         $data = $request->validated();
-//        dd($data);
         $user_id = auth()->check() ? auth()->user()->id : null;
         $basket = Basket::where('user_id', $user_id)->get();
         $orderData['user_id'] = $user_id;
-        $orderData['status_id'] = 1;
+        $orderData['status_id'] = $status->id;
         $orderData['inn'] = $data['inn'];
         $orderData['customer_name'] = $data['lastname'] . ' ' . $data['firstname'] . ' ' . $data['middlename'];
         $orderData['phone'] = $data['phone'];
