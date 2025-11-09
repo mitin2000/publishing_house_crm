@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 
 class StatusController extends Controller
 {
+    private $statusTypes = ['order', 'book'];
+
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +19,7 @@ class StatusController extends Controller
      */
     public function index()
     {
-        $statuses = Status::whereNull('type')->get();
+        $statuses = Status::all()->sortBy('type');
         return view('cms.status.index', compact('statuses'));
     }
 
@@ -28,7 +30,8 @@ class StatusController extends Controller
      */
     public function create()
     {
-        return view('cms.status.create');
+        $statusTypes = $this->statusTypes;
+        return view('cms.status.create', compact('statusTypes'));
     }
 
     /**
@@ -64,7 +67,8 @@ class StatusController extends Controller
      */
     public function edit(Status $status)
     {
-        return view('cms.status.edit', compact('status'));
+        $statusTypes = $this->statusTypes;
+        return view('cms.status.edit', compact('status', 'statusTypes'));
     }
 
     /**

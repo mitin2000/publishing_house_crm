@@ -25,6 +25,20 @@
                         <div class="text-danger">Это поле необходимо для заполнения "{{$message}}"</div>
                         @enderror
                     </div>
+                    <div class="mb-3 form-group">
+                        <label>Выберите тип</label>
+                        <select name="type" class="form-control">
+                            <option value="">---</option>
+                            @foreach($statusTypes as $statusType)
+                                <option value="{{$statusType}}"
+                                    {{ $statusType == old('type') ? 'selected' : '' }}
+                                >{{$statusType}}</option>
+                            @endforeach
+                        </select>
+                        @error('type')
+                        <div class="text-danger">{{$message}}</div>
+                        @enderror
+                    </div>
                     <div class="mb-3">
                         <label>Цвет</label>
                         <input name="color" type="color" list="colorList" aria-describedby="Цвет" value="#ffffff">

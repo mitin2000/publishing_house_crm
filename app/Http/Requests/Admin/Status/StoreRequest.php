@@ -26,7 +26,8 @@ class StoreRequest extends FormRequest
         return [
             'title' => 'required|string',
             'color' => 'string',
-            'description' => 'string'
+            'description' => 'string',
+            'type' => 'string'
         ];
     }
 }

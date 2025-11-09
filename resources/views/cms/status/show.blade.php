@@ -33,6 +33,10 @@
                                     <td>{{$status->title}}</td>
                                 </tr>
                                 <tr>
+                                    <td>Тип</td>
+                                    <td>{{$status->type}}</td>
+                                </tr>
+                                <tr>
                                     <td>Цвет</td>
                                     <td>
                                         <div class="status-color" style="width: 20px; height: 20px; background-color: {{$status->color}};"></div>

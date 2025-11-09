@@ -35,6 +35,7 @@
                                     <th>Название</th>
                                     <th>Цвет</th>
                                     <th>Описание</th>
+                                    <th>Тип</th>
                                     <th>Дата создания</th>
                                     <th colspan="3">Действия</th>
                                 </tr>
@@ -48,6 +49,7 @@
                                             <div class="status-color" style="width: 20px; height: 20px; background-color: {{$status->color}};"></div>
                                         </td>
                                         <td>{{$status->description}}</td>
+                                        <td>{{$status->type}}</td>
                                         <td>{{$status->created_at}}</td>
                                         <td><a  href="{{route('cms.status.show', $status->id)}}"><i class="far fa-eye"></i></a></td>
                                         <td><a  href="{{route('cms.status.edit', $status->id)}}" class="text-success"><i class="fas fa-pen"></i></a></td>
