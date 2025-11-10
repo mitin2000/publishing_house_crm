@@ -18,9 +18,11 @@
             <!-- Small boxes (Stat box) -->
 
             <div class="row mb-3">
+                @can('create order')
                 <div class="col">
                     <a href="#" type="button" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Создать</a>
                 </div>
+                @endcan
             </div>
 
             <div class="row">
@@ -40,7 +42,7 @@
                                     <th>Сумма</th>
                                     <th>Статус</th>
                                     <th>Дата создания</th>
-                                    <th>Действия</th>
+                                    <th colspan="3">Действия</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -56,8 +58,23 @@
                                         <td><span class="badge rounded-pill" style="text-align: center; background-color: {{$order->status->color}}; ">{{$order->status->title}}</span></td>
                                         <td>{{$order->created_at}}</td>
                                         <td>
+                                            @can('view order')
                                             <a  href="{{route('cms.order.show', $order->id)}}"><i class="far fa-eye"></i></a>
+                                            @endcan
+                                        </td>
+                                        <td>
+                                            @can('update order')
                                             <a  href="{{route('cms.order.edit', $order->id)}}" class="text-success"><i class="fas fa-pen"></i></a>
+                                            @endcan
+                                        </td>
+                                        <td>
+                                            @can('delete order')
+                                            <form method="post" action="{{route('cms.order.destroy', $order->id)}}">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="bg-transparent border-0" type="submit"><i class="fas fa-trash text-danger" role="button"></i></button>
+                                            </form>
+                                            @endcan
                                         </td>
                                     </tr>
                                 @endforeach
