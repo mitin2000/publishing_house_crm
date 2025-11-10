@@ -16,12 +16,13 @@
     <section class="content">
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
-
+            @can('create status')
             <div class="row mb-3">
                 <div class="col">
                     <a href="{{route('cms.status.create')}}" type="button" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Создать</a>
                 </div>
             </div>
+            @endcan
 
             <div class="row">
                 <div class="col">
@@ -51,14 +52,23 @@
                                         <td>{{$status->description}}</td>
                                         <td>{{$status->type}}</td>
                                         <td>{{$status->created_at}}</td>
-                                        <td><a  href="{{route('cms.status.show', $status->id)}}"><i class="far fa-eye"></i></a></td>
-                                        <td><a  href="{{route('cms.status.edit', $status->id)}}" class="text-success"><i class="fas fa-pen"></i></a></td>
                                         <td>
+                                            @can('view status')
+                                            <a  href="{{route('cms.status.show', $status->id)}}"><i class="far fa-eye"></i></a>
+                                            @endcan
+                                        </td>
+                                        <td>
+                                            @can('update status')
+                                            <a  href="{{route('cms.status.edit', $status->id)}}" class="text-success"><i class="fas fa-pen"></i></a></td>
+                                            @endcan
+                                        <td>
+                                            @can('delete status')
                                             <form method="post" action="{{route('cms.status.destroy', $status->id)}}">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="bg-transparent border-0" type="submit"><i class="fas fa-trash text-danger" role="button"></i></button>
                                             </form>
+                                            @endcan
                                         </td>
                                     </tr>
                                 @endforeach

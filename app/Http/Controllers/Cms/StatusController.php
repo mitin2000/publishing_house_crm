@@ -12,6 +12,14 @@ class StatusController extends Controller
 {
     private $statusTypes = ['order', 'book'];
 
+    public function __construct()
+    {
+        $this->middleware('permission:view status', ['only' => ['index']]);
+        $this->middleware('permission:create status', ['only' => ['create','store']]);
+        $this->middleware('permission:update status', ['only' => ['update','edit']]);
+        $this->middleware('permission:delete status', ['only' => ['destroy']]);
+    }
+
     /**
      * Display a listing of the resource.
      *

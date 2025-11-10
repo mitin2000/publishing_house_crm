@@ -16,13 +16,13 @@
     <section class="content">
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
-
+            @can('create bookcategory')
             <div class="row mb-3">
                 <div class="col">
                     <a href="{{route('cms.bookcategory.create')}}" type="button" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Создать</a>
                 </div>
             </div>
-
+            @endcan
             <div class="row">
                 <div class="col">
                     <div class="card">
@@ -43,14 +43,24 @@
                                         <td>{{$category->id}}</td>
                                         <td>{{$category->title}}</td>
                                         <td>{{$category->created_at}}</td>
-                                        <td><a  href="{{route('cms.bookcategory.show', $category->id)}}"><i class="far fa-eye"></i></a></td>
-                                        <td><a  href="{{route('cms.bookcategory.edit', $category->id)}}" class="text-success"><i class="fas fa-pen"></i></a></td>
                                         <td>
+                                            @can('view bookcategory')
+                                            <a  href="{{route('cms.bookcategory.show', $category->id)}}"><i class="far fa-eye"></i></a>
+                                            @endcan
+                                        </td>
+                                        <td>
+                                            @can('update bookcategory')
+                                            <a  href="{{route('cms.bookcategory.edit', $category->id)}}" class="text-success"><i class="fas fa-pen"></i></a>
+                                            @endcan
+                                        </td>
+                                        <td>
+                                            @can('delete bookcategory')
                                             <form method="post" action="{{route('cms.bookcategory.destroy', $category->id)}}">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="bg-transparent border-0" type="submit"><i class="fas fa-trash text-danger" role="button"></i></button>
                                             </form>
+                                            @endcan
                                         </td>
                                     </tr>
                                 @endforeach

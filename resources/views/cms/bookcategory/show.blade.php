@@ -53,9 +53,12 @@
             <!-- /.row -->
             <div class="row">
                 <div class="col-3">
+                    @can('update bookcategory')
                     <a class="btn btn-outline-primary mr-2" href="{{route('cms.bookcategory.edit', $bookcategory->id)}}">Редактировать</a>
+                    @endcan@endcan
                     <a class="btn btn-outline-secondary" href="{{route('cms.bookcategory.index')}}">Назад</a>
                 </div>
+                @can('delete bookcategory')
                 <div class="col-3">
                     <div class="d-flex justify-content-end">
                         <div>
@@ -66,8 +69,8 @@
                             </form>
                         </div>
                     </div>
-
                 </div>
+                @endcan@endcan
                 <div class="col-6"></div>
 
             </div>

@@ -73,6 +73,9 @@
                         </p>
                     </a>
                 </li>
+                @endcan
+
+                @can('view bookcategory')
                 <li class="nav-item">
                     <a href="{{route('cms.bookcategory.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-list"></i>
@@ -82,6 +85,8 @@
                     </a>
                 </li>
                 @endcan
+
+                @can('view status')
                 <li class="nav-item">
                     <a href="{{route('cms.status.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-exclamation-circle"></i>
@@ -90,6 +95,9 @@
                         </p>
                     </a>
                 </li>
+                @endcan
+
+                @can('view order')
                 <li class="nav-item">
                     <a href="{{route('cms.order.index')}}" class="nav-link">
                         <i class="nav-icon far fa-usd"></i>
@@ -98,6 +106,8 @@
                         </p>
                     </a>
                 </li>
+                @endcan
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

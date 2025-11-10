@@ -67,9 +67,12 @@
             <!-- /.row -->
             <div class="row">
                 <div class="col">
+                    @can('update status')
                     <a class="btn btn-outline-primary mr-2" href="{{route('cms.status.edit', $status->id)}}">Редактировать</a>
+                    @endcan
                     <a class="btn btn-outline-secondary" href="{{route('cms.status.index')}}">Назад</a>
                 </div>
+                @can('delete status')
                 <div class="col">
                     <div class="d-flex justify-content-end">
                         <div>
@@ -80,9 +83,8 @@
                             </form>
                         </div>
                     </div>
-
                 </div>
-
+                @endcan
 
             </div>
 
