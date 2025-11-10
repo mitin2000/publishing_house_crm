@@ -15,7 +15,7 @@
     <section class="content">
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
-            <div  class="col-xl-4">
+            <div  class="col-xl-6">
                 <form action="{{route('cms.order.update', $order->id)}}" method="post">
                     @csrf
                     @method('PATCH')
