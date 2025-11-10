@@ -26,24 +26,25 @@
                             </p></div>
                     </div>
                     <div class="col-md-6">
-                        @if(auth()->user()->hasRole(['user']))
+                        @if (optional(Auth::user())->hasRole('user'))
                             <div id="add_to_basket" class="col pb-3">
-                            @if($is_basket === true)
+                                @if($is_basket === true)
                                     <a href="{{route('basket.index')}}">
                                         <button class="btn btn-outline-success">
                                             <i class="nav-icon fas fa-shopping-cart"></i> Товар в корзине
                                         </button>
                                     </a>
-                            @else
-                                <form id="basketForm">
-                                    <input type="hidden" id="book_id" name="book_id" value="{{$book->id}}">
-                                    <input type="hidden" id="quantity" name="quantity" value="1">
-                                    <button type="submit" class="btn btn-outline-success"> <i class="nav-icon fas fa-cart-plus"></i> Добавить в заказ</button>
-                                </form>
-                            @endif
-                        </div>
+                                @else
+                                    <form id="basketForm">
+                                        <input type="hidden" id="book_id" name="book_id" value="{{$book->id}}">
+                                        <input type="hidden" id="quantity" name="quantity" value="1">
+                                        <button type="submit" class="btn btn-outline-success"> <i class="nav-icon fas fa-cart-plus"></i> Добавить в заказ</button>
+                                    </form>
+                                @endif
+                            </div>
                         @else
                         @endif
+
                         <div>Описание</div>
                         <div>
                             <p>{!! $book->description !!}</p>
