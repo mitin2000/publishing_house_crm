@@ -30,7 +30,7 @@
                                     @endforeach
                                 </td>
                                 <td>{{$order->amount}}</td>
-                                <td>Обработка</td>
+                                <td>{{$order->status->title}}</td>
                             </tr>
                         @endforeach
                         </tbody>
