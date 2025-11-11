@@ -18,11 +18,11 @@ class BookOrderController extends Controller
     }
 
     public function store(StoreRequest $request){
-        $status = Status::where('type', 'order')->where('title', 'Новый заказ')->get();
+        $status = Status::where('type', 'order')->where('title', 'Новый заказ')->first();
         dd($status->id);
         $data = $request->validated();
         $user_id = auth()->check() ? auth()->user()->id : null;
-        $basket = Basket::where('user_id', $user_id)->first();
+        $basket = Basket::where('user_id', $user_id)->get();
         $orderData['user_id'] = $user_id;
         $orderData['status_id'] = $status->id;
         $orderData['inn'] = $data['inn'];
