@@ -22,7 +22,7 @@ class BookOrderController extends Controller
         dd($status);
         $data = $request->validated();
         $user_id = auth()->check() ? auth()->user()->id : null;
-        $basket = Basket::where('user_id', $user_id)->get();
+        $basket = Basket::where('user_id', $user_id)->first();
         $orderData['user_id'] = $user_id;
         $orderData['status_id'] = $status->id;
         $orderData['inn'] = $data['inn'];
