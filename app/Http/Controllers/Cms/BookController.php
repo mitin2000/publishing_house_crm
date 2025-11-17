@@ -88,6 +88,9 @@ class BookController extends Controller
     {
         $authors = Author::all();
         $categories = BookCategory::all();
+//        dd($book->wb->nmID);
+        $wbCards = $this->wbservice->getBookById($book->wb->nmID);
+
         return view('cms.book.edit', compact('book', 'authors', 'categories'));
     }
 

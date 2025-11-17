@@ -26,6 +26,6 @@ class Book extends Model
 
     public function wb()
     {
-        return $this->belongsTo(WB::class);
+        return $this->belongsTo(WB::class, 'id', 'book_id');
     }
 }
