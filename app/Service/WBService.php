@@ -54,23 +54,32 @@ class WBService
     public function getBookById($nmID)
     {
         $cards = $this->list();
+//        dump($cards);
         $card = [];
         foreach ($cards['cards'] as $item){
             if($item['nmID'] == $nmID){
-                $card = $item;
+                $card['nmID'] = $item['nmID'];
+                $card['imtID'] = $item['imtID'];
+                $card['nmUUID'] = $item['nmUUID'];
+                $card['subjectID'] = $item['subjectID'];
+                $card['vendorCode'] = $item['vendorCode'];
+                $card['title'] = $item['title'];
+                $card['description'] = $item['description'];
+                $card['img'] = $item['photos'][0]['big'];
+                $card['preview_img'] = $item['photos'][0]['c246x328'];
+
+                foreach ($item['characteristics'] as $chars){
+                    if (false !== $key = array_search($chars['name'], $this->charcs)) {
+                        $card[$key] = $chars['value'];
+                    }
+                }
                 break;
             }
         }
 
-        foreach ($card['characteristics'] as $item){
-            if (false !== $key = array_search($item['name'], $this->charcs)) {
-                $card[$key] = $item['value'];
-            }
-        }
-
-        dump($card);
-        $characteristics = $this->getCharcs($card['subjectID']);
-        dump($characteristics);
+//        dump($card);
+//        $characteristics = $this->getCharcs($card['subjectID']);
+//        dump($characteristics);
         return $card;
     }
 }

@@ -41,6 +41,16 @@ class StoreRequest extends FormRequest
             'imtID' => 'nullable|string',
             'nmUUID' => 'nullable|string',
             'subjectID' => 'nullable|string',
+            'code' => 'nullable|string',
+            'cover' => 'nullable|string',
+            'paper_type' => 'nullable|string',
+            'height' => 'nullable|numeric',
+            'width' => 'nullable|numeric',
+            'depth' => 'nullable|numeric',
+            'pages' => 'nullable|numeric',
+            'lang' => 'nullable|string',
+            'age_limit' => 'nullable|string',
+            'weight' => 'nullable|numeric',
         ];
     }
     public function messages()

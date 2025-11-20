@@ -112,6 +112,14 @@
                                     @enderror
                                 </div>
                                 <div class="mb-3">
+                                    <label>Артикул</label>
+                                    <input name="code" type="text" class="form-control" aria-describedby="Артикул"
+                                            value="{{old('code')}}">
+                                    @error('code')
+                                    <div class="text-danger">{{$message}}</div>
+                                    @enderror
+                                </div>
+                                <div class="mb-3">
                                     <label>ISBN</label>
                                     <input name="isbn" type="text" class="form-control" aria-describedby="ISBN"
                                            value="{{old('isbn')}}">
@@ -131,10 +139,82 @@
                                     <label>Издание</label>
                                     <input name="pub_number" type="text" class="form-control" aria-describedby="Издание"
                                            value="{{old('pub_number')}}">
-                                    @error('year')
+                                    @error('pub_number')
                                     <div class="text-danger">{{$message}}</div>
                                     @enderror
                                 </div>
+                                <div class="mb-3">
+                                    <label>Обложка</label>
+                                    <input name="cover" type="text" class="form-control" aria-describedby="Обложка"
+                                            value="{{old('cover')}}">
+                                    @error('cover')
+                                    <div class="text-danger">{{$message}}</div>
+                                    @enderror
+                                </div>
+                                <div class="mb-3">
+                                    <label>Вид бумаги</label>
+                                    <input name="paper_type" type="text" class="form-control" aria-describedby="Вид бумаги"
+                                            value="{{old('paper_type')}}">
+                                    @error('paper_type')
+                                    <div class="text-danger">{{$message}}</div>
+                                    @enderror
+                                </div>
+                            <div class="mb-3">
+                                <label>Высота, см</label>
+                                <input name="height" type="text" class="form-control" aria-describedby="Высота"
+                                       value="{{old('height')}}">
+                                @error('height')
+                                <div class="text-danger">{{$message}}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label>Ширина, см</label>
+                                <input name="width" type="text" class="form-control" aria-describedby="Ширина"
+                                       value="{{old('width')}}">
+                                @error('width')
+                                <div class="text-danger">{{$message}}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label>Глубина, см</label>
+                                <input name="depth" type="text" class="form-control" aria-describedby="Глубина"
+                                       value="{{old('depth')}}">
+                                @error('depth')
+                                <div class="text-danger">{{$message}}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label>Вес, г</label>
+                                <input name="weight" type="text" class="form-control" aria-describedby="Вес, г"
+                                       value="{{old('weight')}}">
+                                @error('weight')
+                                <div class="text-danger">{{$message}}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label>Количество страниц</label>
+                                <input name="pages" type="text" class="form-control" aria-describedby="Количество страниц"
+                                       value="{{old('pages')}}">
+                                @error('pages')
+                                <div class="text-danger">{{$message}}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label>Язык</label>
+                                <input name="lang" type="text" class="form-control" aria-describedby="Язык"
+                                       value="{{old('lang')}}">
+                                @error('lang')
+                                <div class="text-danger">{{$message}}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label>Возрастные ограничения</label>
+                                <input name="age_limit" type="text" class="form-control" aria-describedby="Возрастные ограниченияк"
+                                       value="{{old('age_limit')}}">
+                                @error('age_limit')
+                                <div class="text-danger">{{$message}}</div>
+                                @enderror
+                            </div>
                                 <div class="mb-3 form-group">
                                     <h5><b>Торговый каталог</b></h5>
                                     <label>Стоимость (руб.)</label>
@@ -167,17 +247,38 @@
             $('#wbcard').change(function () {
                 let key = $(this).val();
                 let cardArr = @json($wbCards);
-                $('input[name="title"]').val(cardArr.cards[key].title);
-//                console.log(cardArr.cards[key].photos[0].big);
-                $('#summernote1').summernote('code', cardArr.cards[key].description);
-                $('#image-wb').html('<img class="image-for-card" src="'+cardArr.cards[key].photos[0].big+'" />');
-                $('input[name="image_wb"]').val(cardArr.cards[key].photos[0].big);
-                $('#prev_img-wb').html('<img class="image-for-card" src="'+cardArr.cards[key].photos[0].c246x328+'" />');
-                $('input[name="prev_img_wb"]').val(cardArr.cards[key].photos[0].c246x328);
-                $('input[name="nmID"]').val(cardArr.cards[key].nmID);
-                $('input[name="imtID"]').val(cardArr.cards[key].imtID);
-                $('input[name="nmUUID"]').val(cardArr.cards[key].nmUUID);
-                $('input[name="subjectID"]').val(cardArr.cards[key].subjectID);
+                $.ajax({
+                    url: "{{route('cms.book.get_wb_info')}}",
+                    method: 'get',
+                    data: {
+                        nmID: cardArr.cards[key].nmID
+                    },
+                    success: function (response) {
+                        console.log(response);
+                        $('input[name="title"]').val(response.title);
+                        $('#summernote1').summernote('code', response.description);
+                        $('#image-wb').html('<img class="image-for-card" src="'+response.img+'" />');
+                        $('input[name="image_wb"]').val(response.img);
+                        $('#prev_img-wb').html('<img class="image-for-card" src="'+response.preview_img+'" />');
+                        $('input[name="prev_img_wb"]').val(response.preview_img);
+                        $('input[name="nmID"]').val(response.nmID);
+                        $('input[name="imtID"]').val(response.imtID);
+                        $('input[name="nmUUID"]').val(response.nmUUID);
+                        $('input[name="subjectID"]').val(response.subjectID);
+                        if(typeof response.vendorCode !== "undefined") $('input[name="code"]').val(response.vendorCode);
+                        if(typeof response.isbn !== "undefined") $('input[name="isbn"]').val(response.isbn);
+                        if(typeof response.cover !== "undefined") $('input[name="cover"]').val(response.cover);
+                        if(typeof response.year !== "undefined") $('input[name="year"]').val(response.year);
+                        if(typeof response.paper_type !== "undefined") $('input[name="paper_type"]').val(response.paper_type);
+                        if(typeof response.height !== "undefined") $('input[name="height"]').val(response.height);
+                        if(typeof response.width !== "undefined") $('input[name="width"]').val(response.width);
+                        if(typeof response.depth !== "undefined") $('input[name="depth"]').val(response.depth);
+                        if(typeof response.pages !== "undefined") $('input[name="pages"]').val(response.pages);
+                        if(typeof response.lang !== "undefined") $('input[name="lang"]').val(response.lang);
+                        if(typeof response.age_limit !== "undefined") $('input[name="age_limit"]').val(response.age_limit);
+                        if(typeof response.weight !== "undefined") $('input[name="weight"]').val(response.weight);
+                    },
+                });
             })
 
             function search(arr, value) {

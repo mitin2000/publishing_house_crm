@@ -13,6 +13,8 @@ use App\Service\WBService;
 use Illuminate\Http\Request;
 use App\Service\BookService;
 
+
+
 class BookController extends Controller
 {
 
@@ -89,7 +91,7 @@ class BookController extends Controller
         $authors = Author::all();
         $categories = BookCategory::all();
 //        dd($book->wb->nmID);
-        $wbCards = $this->wbservice->getBookById($book->wb->nmID);
+//        $wbCards = $this->wbservice->getBookById($book->wb->nmID);
 
         return view('cms.book.edit', compact('book', 'authors', 'categories'));
     }
@@ -129,8 +131,15 @@ class BookController extends Controller
         $json = json_encode($wbCards);
         $wbItems = WB::all();
         $nmID = $wbItems->pluck('nmID');
-//        dump($this->wbservice->list());
-//        dump($nmID);
+
         return view('cms.book.create_from_wb', compact('authors', 'categories', 'wbCards', 'json', 'nmID'));
+    }
+
+    public function getWbInfo(Request $request)
+    {
+        \Debugbar::disable();
+        $response = $this->wbservice->getBookById($request->nmID);
+
+        return response()->json($response)->header('Content-Type', 'application/json');
     }
 }
