@@ -112,6 +112,14 @@
                             @enderror
                         </div>
                         <div class="mb-3">
+                            <label>Артикул</label>
+                            <input name="code" type="text" class="form-control" aria-describedby="Артикул"
+                                   value="{{$book->code}}">
+                            @error('code')
+                            <div class="text-danger">{{$message}}</div>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
                             <label>ISBN</label>
                             <input name="isbn" type="text" class="form-control" aria-describedby="ISBN"
                                    value="{{$book->isbn}}">
@@ -135,7 +143,78 @@
                             <div class="text-danger">{{$message}}</div>
                             @enderror
                         </div>
-
+                        <div class="mb-3">
+                            <label>Обложка</label>
+                            <input name="cover" type="text" class="form-control" aria-describedby="Обложка"
+                                   value="{{$book->cover}}">
+                            @error('cover')
+                            <div class="text-danger">{{$message}}</div>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label>Вид бумаги</label>
+                            <input name="paper_type" type="text" class="form-control" aria-describedby="Вид бумаги"
+                                   value="{{$book->paper_type}}">
+                            @error('paper_type')
+                            <div class="text-danger">{{$message}}</div>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label>Высота, см</label>
+                            <input name="height" type="text" class="form-control" aria-describedby="Высота"
+                                   value="{{$book->height}}">
+                            @error('height')
+                            <div class="text-danger">{{$message}}</div>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label>Ширина, см</label>
+                            <input name="width" type="text" class="form-control" aria-describedby="Ширина"
+                                   value="{{$book->width}}">
+                            @error('width')
+                            <div class="text-danger">{{$message}}</div>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label>Глубина, см</label>
+                            <input name="depth" type="text" class="form-control" aria-describedby="Глубина"
+                                   value="{{$book->depth}}">
+                            @error('depth')
+                            <div class="text-danger">{{$message}}</div>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label>Вес, г</label>
+                            <input name="weight" type="text" class="form-control" aria-describedby="Вес, г"
+                                   value="{{$book->weight}}">
+                            @error('weight')
+                            <div class="text-danger">{{$message}}</div>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label>Количество страниц</label>
+                            <input name="pages" type="text" class="form-control" aria-describedby="Количество страниц"
+                                   value="{{$book->pages}}">
+                            @error('pages')
+                            <div class="text-danger">{{$message}}</div>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label>Язык</label>
+                            <input name="lang" type="text" class="form-control" aria-describedby="Язык"
+                                   value="{{$book->lang}}">
+                            @error('lang')
+                            <div class="text-danger">{{$message}}</div>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label>Возрастные ограничения</label>
+                            <input name="age_limit" type="text" class="form-control" aria-describedby="Возрастные ограниченияк"
+                                   value="{{$book->age_limit}}">
+                            @error('age_limit')
+                            <div class="text-danger">{{$message}}</div>
+                            @enderror
+                        </div>
                         <div class="mb-3 form-group">
                             <h5><b>Торговый каталог</b></h5>
                             <label>Стоимость (руб.)</label>

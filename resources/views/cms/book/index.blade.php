@@ -37,6 +37,7 @@
                                         <th>ID</th>
                                         <th>Обложка</th>
                                         <th>Название</th>
+                                        <th>Артикул</th>
                                         <th>Дата создания</th>
                                         <th>Статус</th>
                                         <th>Тираж</th>
@@ -52,6 +53,7 @@
                                             <td><img src="{{ url('storage/' . $book->prev_img) }}" alt="img" width="85">
                                             </td>
                                             <td>{{$book->title}}</td>
+                                            <td>{{$book->code}}</td>
                                             <td>{{$book->created_at}}</td>
                                             <td></td>
                                             <td></td>

@@ -35,6 +35,16 @@ class UpdateRequest extends FormRequest
             'pub_number' => 'nullable|string',
             'price' => 'nullable|numeric',
             'category_id' => 'nullable|numeric',
+            'code' => 'nullable|string',
+            'cover' => 'nullable|string',
+            'paper_type' => 'nullable|string',
+            'height' => 'nullable|numeric',
+            'width' => 'nullable|numeric',
+            'depth' => 'nullable|numeric',
+            'pages' => 'nullable|numeric',
+            'lang' => 'nullable|string',
+            'age_limit' => 'nullable|string',
+            'weight' => 'nullable|numeric',
         ];
     }
     public function messages()
